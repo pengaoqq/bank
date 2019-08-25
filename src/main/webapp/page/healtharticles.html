@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>发布文章</title>
+		<style type="text/css">
+			.my_img{
+				margin: 5px;
+				width: 100px;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				border: 1px solid #E5E5E5;
+				float: left;
+				position: relative;
+				}
+			.my_img:hover{
+				border-color: #009688;
+			}
+			.my_img img{
+				max-height: 100px;
+				max-width: 100px;
+				vertical-align: middle;
+			}
+			.rembox{
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100px;
+				height: 30px;
+				line-height: 30px;
+				font-size: 14px;
+				color: #fff;
+				text-align: center;
+				background-color: #009688;
+				cursor: pointer;
+			} 
+			.rembox:hover{
+				background-color: #cc3300;
+			}
+		</style>
+		<link rel="stylesheet" href="../common/css/sccl.css">
+		<link rel="stylesheet" href="../common/css/layui.css">
+		<link rel="stylesheet" href="../common/iconfont/1.0.1/iconfont.css"/>
+		<link rel="stylesheet" href="../common/css/healthmanagement.css" />
+		<script type="text/javascript" src="../common/lib/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="../common/layui/layui.js" ></script>
+		<script charset="utf-8" src="kindeditor-all-min.js"></script>
+		<script type="text/javascript" src="../common/layui/layui.js" ></script>
+		<script type="text/javascript" src="../common/js/sccl-util.js" ></script>
+		<script>
+		$(function(){
+			layui.use('element', function(){
+	  				var element = layui.element();
+	  				
+			});
+			var index,editor;
+			var active;
+			var layedit;
+			var radioval="";
+			//my_text
+			/*layui.use('layedit', function(){
+  				layedit = layui.layedit;
+  				index =layedit.build('edit', {
+  					tool:['face'],
+  					height: 380 //设置编辑器高度
+				});
+				//index = layedit.build('LAY_demo1');
+			});*/
+			myeditor({"ht":true,"content":"kjsgjksdbkjgbnsdgfkbjhkbkbh"})
+			function myeditor(ovo){
+				if(ovo.ht){
+  					$("#my_text").val(ovo.content);
+  				};
+			KindEditor.ready(function(K) {
+				editor = K.create('textarea[name="content"]', {
+					allowPreviewEmoticons: false,
+					items: [
+						'undo', 'redo', '|', 'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline', 'strikethrough', 'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist', 'insertunorderedlist', 'insertorderedlist', 'insertunorderedlist', '|', 'emoticons', 'image', 'link', 'table', 'hr', 'preview'
+					],
+					uploadJson: myurl()+'/file/picUpload',
+					filePostName:'uploadFile',
+					allowFileManager: false,
+					syncType:"",
+					resizeType:0
+				});
+			});
+			}
+			layui.use('form', function(){
+  				var form = layui.form();
+  			//各种基于事件的操作，下面会有进一步介绍
+  			form.on('radio(radiofilter)', function(data){
+  				radioval=data.value; //被点击的radio的value值
+			});
+			});
+			
+			  $("#flybtn").click(function(){
+					var checkval="";
+					var imgsrc="";
+					editor.sync();
+					console.log($("#my_text").val());
+					if($(".my_img").length>0){
+						for(var i=0;i<$(".my_img").length;i++){
+							imgsrc+=$(".my_img").eq(i).children("img").attr("src")+";";
+						};
+						imgsrc=imgsrc.substring(0,imgsrc.length-1);
+					};
+					for(var i=0;i<$(".checkle").length;i++){
+						if($(".checkle").eq(i).is(':checked')==true){
+							checkval+=$(".checkle").eq(i).val()+";";
+						};
+					};
+					if(checkval.length>0){
+						checkval=checkval.substring(0,checkval.length-1);
+					}else{
+						return false;
+					};
+					
+					
+//					console.log($("#my_text").val());
+//					console.log(imgsrc+"imgsrc");
+//					console.log(radioval+"radioval");
+//					console.log(checkval+"checkval")
+					
+					
+					
+  				});
+  			
+  				
+  				
+			$(".my_img img").click(function(){
+				var json_img={
+  				"title": "", //相册标题
+  				"id": 123, //相册id
+  				"start": 0, //初始显示的图片序号，默认0
+  				"data": [   //相册包含的图片，数组格式
+    				
+  				]
+				}
+				for(var i=0;i<$(".my_img").length;i++){
+					var json_img_d={};
+				json_img_d.alt="图片";
+				json_img_d.pid=i;
+				json_img_d.src=$(".my_img").eq(i).children("img").attr("src");
+				json_img_d.thumb=$(".my_img").eq(i).children("img").attr("src");
+				json_img.data.push(json_img_d);
+			};
+			console.log(json_img);
+				potofun.potoid=json_img;
+				layui.use('layer',potofun );
+			})
+			
+			var potofun=function (){
+  				var layer = layui.layer;
+  				layer.photos({
+  					photos: potofun.potoid
+  					,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+				});
+  				
+			}
+			$(".rembox").click(function(){
+				$(this).parents(".my_img").remove();
+			});
+			$(".my_img").mouseleave(function(){
+				//c
+				$(this).children(".rembox").hide();
+			}).mouseenter(function(){
+				//j
+				$(this).children(".rembox").show();
+			})
+		})
+		</script>
+	</head>
+	<body>
+		<!--healtharticles-->
+		<p style="padding-top: 10px;">
+			<span class="layui-breadcrumb" style="visibility: visible;">
+  				<a><cite>健康中心</cite></a>
+ 		 		<a href="healtharticles.html">发布文章</a>
+			</span>
+		</p>
+<div class="layui-tab layui-tab-card">
+  <ul class="layui-tab-title">
+    <li class="layui-this">编写文章</li>
+    <li>选择栏目</li>
+  </ul>
+  <div class="layui-tab-content" style="height: auto;">
+    <div class="layui-tab-item layui-show" >
+    	<form class="layui-form">
+    		<div class="layui-form-item">
+  				<label class="layui-form-label">文章标题</label>
+  				<div class="layui-input-block">
+   					<input type="text" name="title" maxlength="30" style="width: 500px;" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+  				</div>
+				</div>
+		</form>
+    	<!--<div id="edit"></div>-->
+    	<textarea id="my_text" name="content" style="width: 98%;height: 500px;resize: none;"></textarea>
+    	<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  			<legend>选择图片</legend>
+		</fieldset>
+		<textarea class="layui-textarea" id="LAY_demo1" style="display: none">  
+  			
+		</textarea>
+		<div class="layui-box layui-upload-button">
+		<form class="layui-form" action="">
+			<input type="file" name="file（可随便定义）"  class="layui-upload-file">
+		</form>
+		<span class="layui-upload-icon">
+			<i class="icon-font">&#xe61f;</i>上传图片
+		</span>
+		</div>
+		<div class="layui-clear"></div>
+		<div class="my_img">
+			<div class="rembox">删除</div>
+			<img layer-src="../common/image/login-bg-8.jpg" src="../common/image/login-bg-8.jpg" />
+		</div>
+		<div class="my_img">
+			<img layer-src="../common/image/login-bg-2.jpg" src="../common/image/login-bg-2.jpg" alt=""/>
+		</div>
+		<div class="layui-clear"></div>
+    </div>
+    <div class="layui-tab-item">
+    	<table class="layui-table">
+  <colgroup>
+    <col width="200">
+    <col>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>操作</th>
+    </tr> 
+  </thead>
+  <tbody>
+    <tr>
+      <td>选择栏目</td>
+      <td> 
+      	
+      	<form class="layui-form" action="" >
+      	 	<input type="radio" lay-filter="radiofilter" name="sex" value="1" title="栏目1">
+			<input type="radio" lay-filter="radiofilter" name="sex" value="2" title="栏目2">
+			<input type="radio" lay-filter="radiofilter" name="sex" value="3" title="栏目3">
+			<input type="radio" lay-filter="radiofilter" name="sex" value="4" title="栏目4">
+			<input type="radio" lay-filter="radiofilter" name="sex" value="5" title="栏目5">
+			<input type="radio" lay-filter="radiofilter" name="sex" value="6" title="栏目6">
+ 		</form>
+      </td>
+    </tr>
+    <tr>
+      <td>选择标签</td>
+      <td>
+      	<form class="layui-form" action="" >
+      	<input type="checkbox" class="checkle" lay-filter="checkfilter" value="0" title="写作" >
+		<input type="checkbox" class="checkle" lay-filter="checkfilter" value="1" title="发呆"> 
+		<input type="checkbox" class="checkle" lay-filter="checkfilter" value="2" title="禁用" > 
+		</form>
+      </td>
+    </tr>
+    <tr>
+    	<td></td>
+    	<td>
+    		<button class="layui-btn" id="flybtn" data-type="content">确认发布</button>
+    	</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    
+  </div>
+</div>
+		
+		
+	</body>
+</html>

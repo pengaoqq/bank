@@ -1,0 +1,1805 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.goktech.dao.DazyhkhMapper" >
+  <resultMap id="BaseResultMap" type="cn.goktech.pojo.Dazyhkh" >
+    <id column="ID" property="id" jdbcType="OTHER" />
+    <result column="LIUSH" property="liush" jdbcType="OTHER" />
+    <result column="CUNKRMC" property="cunkrmc" jdbcType="VARCHAR" />
+    <result column="CUNKRDH" property="cunkrdh" jdbcType="VARCHAR" />
+    <result column="ZHUCQY" property="zhucqy" jdbcType="VARCHAR" />
+    <result column="ZHUCDZ" property="zhucdz" jdbcType="VARCHAR" />
+    <result column="YOUZBM" property="youzbm" jdbcType="OTHER" />
+    <result column="CUNKRLB" property="cunkrlb" jdbcType="OTHER" />
+    <result column="ZUZJGDM" property="zuzjgdm" jdbcType="VARCHAR" />
+    <result column="RENYLB" property="renylb" jdbcType="OTHER" />
+    <result column="FADDBR" property="faddbr" jdbcType="VARCHAR" />
+    <result column="DANWFZR" property="danwfzr" jdbcType="VARCHAR" />
+    <result column="XINGM" property="xingm" jdbcType="VARCHAR" />
+    <result column="DIANH" property="dianh" jdbcType="VARCHAR" />
+    <result column="ZHENGJZL" property="zhengjzl" jdbcType="OTHER" />
+    <result column="ZHENGJHM" property="zhengjhm" jdbcType="VARCHAR" />
+    <result column="ZHENGJYXQZ" property="zhengjyxqz" jdbcType="DATE" />
+    <result column="ZHANGQ" property="zhangq" jdbcType="VARCHAR" />
+    <result column="CAIWFZR" property="caiwfzr" jdbcType="VARCHAR" />
+    <result column="XINGM1" property="xingm1" jdbcType="VARCHAR" />
+    <result column="DIANH1" property="dianh1" jdbcType="VARCHAR" />
+    <result column="ZHENGJZL1" property="zhengjzl1" jdbcType="OTHER" />
+    <result column="ZHENGJHM1" property="zhengjhm1" jdbcType="VARCHAR" />
+    <result column="ZHENGJYXQZ1" property="zhengjyxqz1" jdbcType="DATE" />
+    <result column="ZHANGQ1" property="zhangq1" jdbcType="VARCHAR" />
+    <result column="SHOUQJBR" property="shouqjbr" jdbcType="VARCHAR" />
+    <result column="XINGM2" property="xingm2" jdbcType="VARCHAR" />
+    <result column="DIANH2" property="dianh2" jdbcType="VARCHAR" />
+    <result column="ZHENGJZL2" property="zhengjzl2" jdbcType="OTHER" />
+    <result column="ZHENGJHM2" property="zhengjhm2" jdbcType="VARCHAR" />
+    <result column="ZHENGJYXQZ2" property="zhengjyxqz2" jdbcType="DATE" />
+    <result column="ZHANGQ2" property="zhangq2" jdbcType="VARCHAR" />
+    <result column="KONGGGDHSJKZR" property="kongggdhsjkzr" jdbcType="VARCHAR" />
+    <result column="XINGM3" property="xingm3" jdbcType="VARCHAR" />
+    <result column="DIANH3" property="dianh3" jdbcType="VARCHAR" />
+    <result column="ZHENGJZL3" property="zhengjzl3" jdbcType="OTHER" />
+    <result column="ZHENGJHM3" property="zhengjhm3" jdbcType="VARCHAR" />
+    <result column="ZHENGJYXQZ3" property="zhengjyxqz3" jdbcType="DATE" />
+    <result column="ZHANGQ3" property="zhangq3" jdbcType="VARCHAR" />
+    <result column="KONGGGDHSJKZR1" property="kongggdhsjkzr1" jdbcType="VARCHAR" />
+    <result column="XINGM4" property="xingm4" jdbcType="VARCHAR" />
+    <result column="DIANH4" property="dianh4" jdbcType="VARCHAR" />
+    <result column="ZHENGJZL4" property="zhengjzl4" jdbcType="OTHER" />
+    <result column="ZHENGJHM4" property="zhengjhm4" jdbcType="VARCHAR" />
+    <result column="ZHENGJYXQZ4" property="zhengjyxqz4" jdbcType="DATE" />
+    <result column="ZHANGQ4" property="zhangq4" jdbcType="VARCHAR" />
+    <result column="HANGYFL" property="hangyfl" jdbcType="OTHER" />
+    <result column="ZHUCZJ" property="zhuczj" jdbcType="DECIMAL" />
+    <result column="DIQDM" property="diqdm" jdbcType="VARCHAR" />
+    <result column="JINGYFW" property="jingyfw" jdbcType="VARCHAR" />
+    <result column="ZHENGMWJ1ZL" property="zhengmwj1zl" jdbcType="OTHER" />
+    <result column="ZHENGMWJ1BH" property="zhengmwj1bh" jdbcType="VARCHAR" />
+    <result column="WENJYXQ1" property="wenjyxq1" jdbcType="DATE" />
+    <result column="WENJCQ1" property="wenjcq1" jdbcType="VARCHAR" />
+    <result column="ZHENGMWJ2ZL" property="zhengmwj2zl" jdbcType="OTHER" />
+    <result column="ZHENGMWJ2BH" property="zhengmwj2bh" jdbcType="VARCHAR" />
+    <result column="WENJYXQ2" property="wenjyxq2" jdbcType="DATE" />
+    <result column="WENJCQ2" property="wenjcq2" jdbcType="VARCHAR" />
+    <result column="GUOSDJZH" property="guosdjzh" jdbcType="VARCHAR" />
+    <result column="DISDJZH" property="disdjzh" jdbcType="VARCHAR" />
+    <result column="GUOSYXQ" property="guosyxq" jdbcType="DATE" />
+    <result column="DISYXQ" property="disyxq" jdbcType="DATE" />
+    <result column="GUOSCQ" property="guoscq" jdbcType="VARCHAR" />
+    <result column="DISCQ" property="discq" jdbcType="VARCHAR" />
+    <result column="ZHANGHXZ" property="zhanghxz" jdbcType="OTHER" />
+    <result column="ZIJXZ" property="zijxz" jdbcType="OTHER" />
+    <result column="ZIJYXQ" property="zijyxq" jdbcType="DATE" />
+    <result column="SHANGJFRHZGDWMC" property="shangjfrhzgdwmc" jdbcType="VARCHAR" />
+    <result column="JIBCKZHKHXKZHZH" property="jibckzhkhxkzhzh" jdbcType="VARCHAR" />
+    <result column="SHANGJZZJGDM" property="shangjzzjgdm" jdbcType="VARCHAR" />
+    <result column="SHANGJRYLB" property="shangjrylb" jdbcType="OTHER" />
+    <result column="SHANGJFDDBR" property="shangjfddbr" jdbcType="VARCHAR" />
+    <result column="SHANGJDWFZR" property="shangjdwfzr" jdbcType="VARCHAR" />
+    <result column="SHANGJXM" property="shangjxm" jdbcType="VARCHAR" />
+    <result column="SHANGJZJZL" property="shangjzjzl" jdbcType="OTHER" />
+    <result column="SHANGJZJHM" property="shangjzjhm" jdbcType="VARCHAR" />
+    <result column="KAIHYXMC" property="kaihyxmc" jdbcType="VARCHAR" />
+    <result column="KAIHYXDM" property="kaihyxdm" jdbcType="VARCHAR" />
+    <result column="ZHANGHMC" property="zhanghmc" jdbcType="VARCHAR" />
+    <result column="ZHANGH" property="zhangh" jdbcType="VARCHAR" />
+    <result column="YINXCKZHKHXKZHZH" property="yinxckzhkhxkzhzh" jdbcType="VARCHAR" />
+    <result column="KAIHRQ" property="kaihrq" jdbcType="DATE" />
+    <result column="BEIZ" property="beiz" jdbcType="VARCHAR" />
+    <result column="ZHUANGT" property="zhuangt" jdbcType="VARCHAR" />
+    <result column="CHUANGJR" property="chuangjr" jdbcType="VARCHAR" />
+    <result column="XIUGR" property="xiugr" jdbcType="VARCHAR" />
+    <result column="CHUANGJSJ" property="chuangjsj" jdbcType="DATE" />
+    <result column="XIUGSJ" property="xiugsj" jdbcType="DATE" />
+    <result column="USERID" property="userid" jdbcType="OTHER" />
+    <result column="JIAOYDM" property="jiaoydm" jdbcType="VARCHAR" />
+    <result column="DIQDH" property="diqdh" jdbcType="VARCHAR" />
+    <result column="JIGDH" property="jigdh" jdbcType="VARCHAR" />
+    <result column="JIAOYGY" property="jiaoygy" jdbcType="VARCHAR" />
+    <result column="ZHONGDDH" property="zhongddh" jdbcType="VARCHAR" />
+    <result column="QIYDH" property="qiydh" jdbcType="VARCHAR" />
+    <result column="GUIYLSH" property="guiylsh" jdbcType="VARCHAR" />
+    <result column="KEHDH" property="kehdh" jdbcType="VARCHAR" />
+    <result column="KAIHYXSHYJ" property="kaihyxshyj" jdbcType="VARCHAR" />
+    <result column="KAIHYXSHRQ" property="kaihyxshrq" jdbcType="DATE" />
+    <result column="RENMYXSHYJ" property="renmyxshyj" jdbcType="VARCHAR" />
+    <result column="RENMYXSHRQ" property="renmyxshrq" jdbcType="DATE" />
+    <result column="JIB" property="jib" jdbcType="VARCHAR" />
+    <result column="YIB" property="yib" jdbcType="VARCHAR" />
+    <result column="ZHUANY" property="zhuany" jdbcType="VARCHAR" />
+    <result column="LINS" property="lins" jdbcType="VARCHAR" />
+    <result column="JIGID" property="jigid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, LIUSH, CUNKRMC, CUNKRDH, ZHUCQY, ZHUCDZ, YOUZBM, CUNKRLB, ZUZJGDM, RENYLB, FADDBR, 
+    DANWFZR, XINGM, DIANH, ZHENGJZL, ZHENGJHM, ZHENGJYXQZ, ZHANGQ, CAIWFZR, XINGM1, DIANH1, 
+    ZHENGJZL1, ZHENGJHM1, ZHENGJYXQZ1, ZHANGQ1, SHOUQJBR, XINGM2, DIANH2, ZHENGJZL2, 
+    ZHENGJHM2, ZHENGJYXQZ2, ZHANGQ2, KONGGGDHSJKZR, XINGM3, DIANH3, ZHENGJZL3, ZHENGJHM3, 
+    ZHENGJYXQZ3, ZHANGQ3, KONGGGDHSJKZR1, XINGM4, DIANH4, ZHENGJZL4, ZHENGJHM4, ZHENGJYXQZ4, 
+    ZHANGQ4, HANGYFL, ZHUCZJ, DIQDM, JINGYFW, ZHENGMWJ1ZL, ZHENGMWJ1BH, WENJYXQ1, WENJCQ1, 
+    ZHENGMWJ2ZL, ZHENGMWJ2BH, WENJYXQ2, WENJCQ2, GUOSDJZH, DISDJZH, GUOSYXQ, DISYXQ, 
+    GUOSCQ, DISCQ, ZHANGHXZ, ZIJXZ, ZIJYXQ, SHANGJFRHZGDWMC, JIBCKZHKHXKZHZH, SHANGJZZJGDM, 
+    SHANGJRYLB, SHANGJFDDBR, SHANGJDWFZR, SHANGJXM, SHANGJZJZL, SHANGJZJHM, KAIHYXMC, 
+    KAIHYXDM, ZHANGHMC, ZHANGH, YINXCKZHKHXKZHZH, KAIHRQ, BEIZ, ZHUANGT, CHUANGJR, XIUGR, 
+    CHUANGJSJ, XIUGSJ, USERID, JIAOYDM, DIQDH, JIGDH, JIAOYGY, ZHONGDDH, QIYDH, GUIYLSH, 
+    KEHDH, KAIHYXSHYJ, KAIHYXSHRQ, RENMYXSHYJ, RENMYXSHRQ, JIB, YIB, ZHUANY, LINS, JIGID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.goktech.pojo.DazyhkhExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from DZBANK07.DAZYHKH
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Object" >
+    select 
+    <include refid="Base_Column_List" />
+    from DZBANK07.DAZYHKH
+    where ID = #{id,jdbcType=OTHER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Object" >
+    delete from DZBANK07.DAZYHKH
+    where ID = #{id,jdbcType=OTHER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.goktech.pojo.DazyhkhExample" >
+    delete from DZBANK07.DAZYHKH
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.goktech.pojo.Dazyhkh" >
+    insert into DZBANK07.DAZYHKH (ID, LIUSH, CUNKRMC, 
+      CUNKRDH, ZHUCQY, ZHUCDZ, 
+      YOUZBM, CUNKRLB, ZUZJGDM, 
+      RENYLB, FADDBR, DANWFZR, 
+      XINGM, DIANH, ZHENGJZL, 
+      ZHENGJHM, ZHENGJYXQZ, ZHANGQ, 
+      CAIWFZR, XINGM1, DIANH1, 
+      ZHENGJZL1, ZHENGJHM1, ZHENGJYXQZ1, 
+      ZHANGQ1, SHOUQJBR, XINGM2, 
+      DIANH2, ZHENGJZL2, ZHENGJHM2, 
+      ZHENGJYXQZ2, ZHANGQ2, KONGGGDHSJKZR, 
+      XINGM3, DIANH3, ZHENGJZL3, 
+      ZHENGJHM3, ZHENGJYXQZ3, ZHANGQ3, 
+      KONGGGDHSJKZR1, XINGM4, DIANH4, 
+      ZHENGJZL4, ZHENGJHM4, ZHENGJYXQZ4, 
+      ZHANGQ4, HANGYFL, ZHUCZJ, 
+      DIQDM, JINGYFW, ZHENGMWJ1ZL, 
+      ZHENGMWJ1BH, WENJYXQ1, WENJCQ1, 
+      ZHENGMWJ2ZL, ZHENGMWJ2BH, WENJYXQ2, 
+      WENJCQ2, GUOSDJZH, DISDJZH, 
+      GUOSYXQ, DISYXQ, GUOSCQ, 
+      DISCQ, ZHANGHXZ, ZIJXZ, 
+      ZIJYXQ, SHANGJFRHZGDWMC, JIBCKZHKHXKZHZH, 
+      SHANGJZZJGDM, SHANGJRYLB, SHANGJFDDBR, 
+      SHANGJDWFZR, SHANGJXM, SHANGJZJZL, 
+      SHANGJZJHM, KAIHYXMC, KAIHYXDM, 
+      ZHANGHMC, ZHANGH, YINXCKZHKHXKZHZH, 
+      KAIHRQ, BEIZ, ZHUANGT, 
+      CHUANGJR, XIUGR, CHUANGJSJ, 
+      XIUGSJ, USERID, JIAOYDM, 
+      DIQDH, JIGDH, JIAOYGY, 
+      ZHONGDDH, QIYDH, GUIYLSH, 
+      KEHDH, KAIHYXSHYJ, KAIHYXSHRQ, 
+      RENMYXSHYJ, RENMYXSHRQ, JIB, 
+      YIB, ZHUANY, LINS, 
+      JIGID)
+    values (#{id,jdbcType=OTHER}, #{liush,jdbcType=OTHER}, #{cunkrmc,jdbcType=VARCHAR}, 
+      #{cunkrdh,jdbcType=VARCHAR}, #{zhucqy,jdbcType=VARCHAR}, #{zhucdz,jdbcType=VARCHAR}, 
+      #{youzbm,jdbcType=OTHER}, #{cunkrlb,jdbcType=OTHER}, #{zuzjgdm,jdbcType=VARCHAR}, 
+      #{renylb,jdbcType=OTHER}, #{faddbr,jdbcType=VARCHAR}, #{danwfzr,jdbcType=VARCHAR}, 
+      #{xingm,jdbcType=VARCHAR}, #{dianh,jdbcType=VARCHAR}, #{zhengjzl,jdbcType=OTHER}, 
+      #{zhengjhm,jdbcType=VARCHAR}, #{zhengjyxqz,jdbcType=DATE}, #{zhangq,jdbcType=VARCHAR}, 
+      #{caiwfzr,jdbcType=VARCHAR}, #{xingm1,jdbcType=VARCHAR}, #{dianh1,jdbcType=VARCHAR}, 
+      #{zhengjzl1,jdbcType=OTHER}, #{zhengjhm1,jdbcType=VARCHAR}, #{zhengjyxqz1,jdbcType=DATE}, 
+      #{zhangq1,jdbcType=VARCHAR}, #{shouqjbr,jdbcType=VARCHAR}, #{xingm2,jdbcType=VARCHAR}, 
+      #{dianh2,jdbcType=VARCHAR}, #{zhengjzl2,jdbcType=OTHER}, #{zhengjhm2,jdbcType=VARCHAR}, 
+      #{zhengjyxqz2,jdbcType=DATE}, #{zhangq2,jdbcType=VARCHAR}, #{kongggdhsjkzr,jdbcType=VARCHAR}, 
+      #{xingm3,jdbcType=VARCHAR}, #{dianh3,jdbcType=VARCHAR}, #{zhengjzl3,jdbcType=OTHER}, 
+      #{zhengjhm3,jdbcType=VARCHAR}, #{zhengjyxqz3,jdbcType=DATE}, #{zhangq3,jdbcType=VARCHAR}, 
+      #{kongggdhsjkzr1,jdbcType=VARCHAR}, #{xingm4,jdbcType=VARCHAR}, #{dianh4,jdbcType=VARCHAR}, 
+      #{zhengjzl4,jdbcType=OTHER}, #{zhengjhm4,jdbcType=VARCHAR}, #{zhengjyxqz4,jdbcType=DATE}, 
+      #{zhangq4,jdbcType=VARCHAR}, #{hangyfl,jdbcType=OTHER}, #{zhuczj,jdbcType=DECIMAL}, 
+      #{diqdm,jdbcType=VARCHAR}, #{jingyfw,jdbcType=VARCHAR}, #{zhengmwj1zl,jdbcType=OTHER}, 
+      #{zhengmwj1bh,jdbcType=VARCHAR}, #{wenjyxq1,jdbcType=DATE}, #{wenjcq1,jdbcType=VARCHAR}, 
+      #{zhengmwj2zl,jdbcType=OTHER}, #{zhengmwj2bh,jdbcType=VARCHAR}, #{wenjyxq2,jdbcType=DATE}, 
+      #{wenjcq2,jdbcType=VARCHAR}, #{guosdjzh,jdbcType=VARCHAR}, #{disdjzh,jdbcType=VARCHAR}, 
+      #{guosyxq,jdbcType=DATE}, #{disyxq,jdbcType=DATE}, #{guoscq,jdbcType=VARCHAR}, 
+      #{discq,jdbcType=VARCHAR}, #{zhanghxz,jdbcType=OTHER}, #{zijxz,jdbcType=OTHER}, 
+      #{zijyxq,jdbcType=DATE}, #{shangjfrhzgdwmc,jdbcType=VARCHAR}, #{jibckzhkhxkzhzh,jdbcType=VARCHAR}, 
+      #{shangjzzjgdm,jdbcType=VARCHAR}, #{shangjrylb,jdbcType=OTHER}, #{shangjfddbr,jdbcType=VARCHAR}, 
+      #{shangjdwfzr,jdbcType=VARCHAR}, #{shangjxm,jdbcType=VARCHAR}, #{shangjzjzl,jdbcType=OTHER}, 
+      #{shangjzjhm,jdbcType=VARCHAR}, #{kaihyxmc,jdbcType=VARCHAR}, #{kaihyxdm,jdbcType=VARCHAR}, 
+      #{zhanghmc,jdbcType=VARCHAR}, #{zhangh,jdbcType=VARCHAR}, #{yinxckzhkhxkzhzh,jdbcType=VARCHAR}, 
+      #{kaihrq,jdbcType=DATE}, #{beiz,jdbcType=VARCHAR}, #{zhuangt,jdbcType=VARCHAR}, 
+      #{chuangjr,jdbcType=VARCHAR}, #{xiugr,jdbcType=VARCHAR}, #{chuangjsj,jdbcType=DATE}, 
+      #{xiugsj,jdbcType=DATE}, #{userid,jdbcType=OTHER}, #{jiaoydm,jdbcType=VARCHAR}, 
+      #{diqdh,jdbcType=VARCHAR}, #{jigdh,jdbcType=VARCHAR}, #{jiaoygy,jdbcType=VARCHAR}, 
+      #{zhongddh,jdbcType=VARCHAR}, #{qiydh,jdbcType=VARCHAR}, #{guiylsh,jdbcType=VARCHAR}, 
+      #{kehdh,jdbcType=VARCHAR}, #{kaihyxshyj,jdbcType=VARCHAR}, #{kaihyxshrq,jdbcType=DATE}, 
+      #{renmyxshyj,jdbcType=VARCHAR}, #{renmyxshrq,jdbcType=DATE}, #{jib,jdbcType=VARCHAR}, 
+      #{yib,jdbcType=VARCHAR}, #{zhuany,jdbcType=VARCHAR}, #{lins,jdbcType=VARCHAR}, 
+      #{jigid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.goktech.pojo.Dazyhkh" >
+    insert into DZBANK07.DAZYHKH
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="liush != null" >
+        LIUSH,
+      </if>
+      <if test="cunkrmc != null" >
+        CUNKRMC,
+      </if>
+      <if test="cunkrdh != null" >
+        CUNKRDH,
+      </if>
+      <if test="zhucqy != null" >
+        ZHUCQY,
+      </if>
+      <if test="zhucdz != null" >
+        ZHUCDZ,
+      </if>
+      <if test="youzbm != null" >
+        YOUZBM,
+      </if>
+      <if test="cunkrlb != null" >
+        CUNKRLB,
+      </if>
+      <if test="zuzjgdm != null" >
+        ZUZJGDM,
+      </if>
+      <if test="renylb != null" >
+        RENYLB,
+      </if>
+      <if test="faddbr != null" >
+        FADDBR,
+      </if>
+      <if test="danwfzr != null" >
+        DANWFZR,
+      </if>
+      <if test="xingm != null" >
+        XINGM,
+      </if>
+      <if test="dianh != null" >
+        DIANH,
+      </if>
+      <if test="zhengjzl != null" >
+        ZHENGJZL,
+      </if>
+      <if test="zhengjhm != null" >
+        ZHENGJHM,
+      </if>
+      <if test="zhengjyxqz != null" >
+        ZHENGJYXQZ,
+      </if>
+      <if test="zhangq != null" >
+        ZHANGQ,
+      </if>
+      <if test="caiwfzr != null" >
+        CAIWFZR,
+      </if>
+      <if test="xingm1 != null" >
+        XINGM1,
+      </if>
+      <if test="dianh1 != null" >
+        DIANH1,
+      </if>
+      <if test="zhengjzl1 != null" >
+        ZHENGJZL1,
+      </if>
+      <if test="zhengjhm1 != null" >
+        ZHENGJHM1,
+      </if>
+      <if test="zhengjyxqz1 != null" >
+        ZHENGJYXQZ1,
+      </if>
+      <if test="zhangq1 != null" >
+        ZHANGQ1,
+      </if>
+      <if test="shouqjbr != null" >
+        SHOUQJBR,
+      </if>
+      <if test="xingm2 != null" >
+        XINGM2,
+      </if>
+      <if test="dianh2 != null" >
+        DIANH2,
+      </if>
+      <if test="zhengjzl2 != null" >
+        ZHENGJZL2,
+      </if>
+      <if test="zhengjhm2 != null" >
+        ZHENGJHM2,
+      </if>
+      <if test="zhengjyxqz2 != null" >
+        ZHENGJYXQZ2,
+      </if>
+      <if test="zhangq2 != null" >
+        ZHANGQ2,
+      </if>
+      <if test="kongggdhsjkzr != null" >
+        KONGGGDHSJKZR,
+      </if>
+      <if test="xingm3 != null" >
+        XINGM3,
+      </if>
+      <if test="dianh3 != null" >
+        DIANH3,
+      </if>
+      <if test="zhengjzl3 != null" >
+        ZHENGJZL3,
+      </if>
+      <if test="zhengjhm3 != null" >
+        ZHENGJHM3,
+      </if>
+      <if test="zhengjyxqz3 != null" >
+        ZHENGJYXQZ3,
+      </if>
+      <if test="zhangq3 != null" >
+        ZHANGQ3,
+      </if>
+      <if test="kongggdhsjkzr1 != null" >
+        KONGGGDHSJKZR1,
+      </if>
+      <if test="xingm4 != null" >
+        XINGM4,
+      </if>
+      <if test="dianh4 != null" >
+        DIANH4,
+      </if>
+      <if test="zhengjzl4 != null" >
+        ZHENGJZL4,
+      </if>
+      <if test="zhengjhm4 != null" >
+        ZHENGJHM4,
+      </if>
+      <if test="zhengjyxqz4 != null" >
+        ZHENGJYXQZ4,
+      </if>
+      <if test="zhangq4 != null" >
+        ZHANGQ4,
+      </if>
+      <if test="hangyfl != null" >
+        HANGYFL,
+      </if>
+      <if test="zhuczj != null" >
+        ZHUCZJ,
+      </if>
+      <if test="diqdm != null" >
+        DIQDM,
+      </if>
+      <if test="jingyfw != null" >
+        JINGYFW,
+      </if>
+      <if test="zhengmwj1zl != null" >
+        ZHENGMWJ1ZL,
+      </if>
+      <if test="zhengmwj1bh != null" >
+        ZHENGMWJ1BH,
+      </if>
+      <if test="wenjyxq1 != null" >
+        WENJYXQ1,
+      </if>
+      <if test="wenjcq1 != null" >
+        WENJCQ1,
+      </if>
+      <if test="zhengmwj2zl != null" >
+        ZHENGMWJ2ZL,
+      </if>
+      <if test="zhengmwj2bh != null" >
+        ZHENGMWJ2BH,
+      </if>
+      <if test="wenjyxq2 != null" >
+        WENJYXQ2,
+      </if>
+      <if test="wenjcq2 != null" >
+        WENJCQ2,
+      </if>
+      <if test="guosdjzh != null" >
+        GUOSDJZH,
+      </if>
+      <if test="disdjzh != null" >
+        DISDJZH,
+      </if>
+      <if test="guosyxq != null" >
+        GUOSYXQ,
+      </if>
+      <if test="disyxq != null" >
+        DISYXQ,
+      </if>
+      <if test="guoscq != null" >
+        GUOSCQ,
+      </if>
+      <if test="discq != null" >
+        DISCQ,
+      </if>
+      <if test="zhanghxz != null" >
+        ZHANGHXZ,
+      </if>
+      <if test="zijxz != null" >
+        ZIJXZ,
+      </if>
+      <if test="zijyxq != null" >
+        ZIJYXQ,
+      </if>
+      <if test="shangjfrhzgdwmc != null" >
+        SHANGJFRHZGDWMC,
+      </if>
+      <if test="jibckzhkhxkzhzh != null" >
+        JIBCKZHKHXKZHZH,
+      </if>
+      <if test="shangjzzjgdm != null" >
+        SHANGJZZJGDM,
+      </if>
+      <if test="shangjrylb != null" >
+        SHANGJRYLB,
+      </if>
+      <if test="shangjfddbr != null" >
+        SHANGJFDDBR,
+      </if>
+      <if test="shangjdwfzr != null" >
+        SHANGJDWFZR,
+      </if>
+      <if test="shangjxm != null" >
+        SHANGJXM,
+      </if>
+      <if test="shangjzjzl != null" >
+        SHANGJZJZL,
+      </if>
+      <if test="shangjzjhm != null" >
+        SHANGJZJHM,
+      </if>
+      <if test="kaihyxmc != null" >
+        KAIHYXMC,
+      </if>
+      <if test="kaihyxdm != null" >
+        KAIHYXDM,
+      </if>
+      <if test="zhanghmc != null" >
+        ZHANGHMC,
+      </if>
+      <if test="zhangh != null" >
+        ZHANGH,
+      </if>
+      <if test="yinxckzhkhxkzhzh != null" >
+        YINXCKZHKHXKZHZH,
+      </if>
+      <if test="kaihrq != null" >
+        KAIHRQ,
+      </if>
+      <if test="beiz != null" >
+        BEIZ,
+      </if>
+      <if test="zhuangt != null" >
+        ZHUANGT,
+      </if>
+      <if test="chuangjr != null" >
+        CHUANGJR,
+      </if>
+      <if test="xiugr != null" >
+        XIUGR,
+      </if>
+      <if test="chuangjsj != null" >
+        CHUANGJSJ,
+      </if>
+      <if test="xiugsj != null" >
+        XIUGSJ,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="jiaoydm != null" >
+        JIAOYDM,
+      </if>
+      <if test="diqdh != null" >
+        DIQDH,
+      </if>
+      <if test="jigdh != null" >
+        JIGDH,
+      </if>
+      <if test="jiaoygy != null" >
+        JIAOYGY,
+      </if>
+      <if test="zhongddh != null" >
+        ZHONGDDH,
+      </if>
+      <if test="qiydh != null" >
+        QIYDH,
+      </if>
+      <if test="guiylsh != null" >
+        GUIYLSH,
+      </if>
+      <if test="kehdh != null" >
+        KEHDH,
+      </if>
+      <if test="kaihyxshyj != null" >
+        KAIHYXSHYJ,
+      </if>
+      <if test="kaihyxshrq != null" >
+        KAIHYXSHRQ,
+      </if>
+      <if test="renmyxshyj != null" >
+        RENMYXSHYJ,
+      </if>
+      <if test="renmyxshrq != null" >
+        RENMYXSHRQ,
+      </if>
+      <if test="jib != null" >
+        JIB,
+      </if>
+      <if test="yib != null" >
+        YIB,
+      </if>
+      <if test="zhuany != null" >
+        ZHUANY,
+      </if>
+      <if test="lins != null" >
+        LINS,
+      </if>
+      <if test="jigid != null" >
+        JIGID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=OTHER},
+      </if>
+      <if test="liush != null" >
+        #{liush,jdbcType=OTHER},
+      </if>
+      <if test="cunkrmc != null" >
+        #{cunkrmc,jdbcType=VARCHAR},
+      </if>
+      <if test="cunkrdh != null" >
+        #{cunkrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="zhucqy != null" >
+        #{zhucqy,jdbcType=VARCHAR},
+      </if>
+      <if test="zhucdz != null" >
+        #{zhucdz,jdbcType=VARCHAR},
+      </if>
+      <if test="youzbm != null" >
+        #{youzbm,jdbcType=OTHER},
+      </if>
+      <if test="cunkrlb != null" >
+        #{cunkrlb,jdbcType=OTHER},
+      </if>
+      <if test="zuzjgdm != null" >
+        #{zuzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="renylb != null" >
+        #{renylb,jdbcType=OTHER},
+      </if>
+      <if test="faddbr != null" >
+        #{faddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="danwfzr != null" >
+        #{danwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="xingm != null" >
+        #{xingm,jdbcType=VARCHAR},
+      </if>
+      <if test="dianh != null" >
+        #{dianh,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjzl != null" >
+        #{zhengjzl,jdbcType=OTHER},
+      </if>
+      <if test="zhengjhm != null" >
+        #{zhengjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjyxqz != null" >
+        #{zhengjyxqz,jdbcType=DATE},
+      </if>
+      <if test="zhangq != null" >
+        #{zhangq,jdbcType=VARCHAR},
+      </if>
+      <if test="caiwfzr != null" >
+        #{caiwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="xingm1 != null" >
+        #{xingm1,jdbcType=VARCHAR},
+      </if>
+      <if test="dianh1 != null" >
+        #{dianh1,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjzl1 != null" >
+        #{zhengjzl1,jdbcType=OTHER},
+      </if>
+      <if test="zhengjhm1 != null" >
+        #{zhengjhm1,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjyxqz1 != null" >
+        #{zhengjyxqz1,jdbcType=DATE},
+      </if>
+      <if test="zhangq1 != null" >
+        #{zhangq1,jdbcType=VARCHAR},
+      </if>
+      <if test="shouqjbr != null" >
+        #{shouqjbr,jdbcType=VARCHAR},
+      </if>
+      <if test="xingm2 != null" >
+        #{xingm2,jdbcType=VARCHAR},
+      </if>
+      <if test="dianh2 != null" >
+        #{dianh2,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjzl2 != null" >
+        #{zhengjzl2,jdbcType=OTHER},
+      </if>
+      <if test="zhengjhm2 != null" >
+        #{zhengjhm2,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjyxqz2 != null" >
+        #{zhengjyxqz2,jdbcType=DATE},
+      </if>
+      <if test="zhangq2 != null" >
+        #{zhangq2,jdbcType=VARCHAR},
+      </if>
+      <if test="kongggdhsjkzr != null" >
+        #{kongggdhsjkzr,jdbcType=VARCHAR},
+      </if>
+      <if test="xingm3 != null" >
+        #{xingm3,jdbcType=VARCHAR},
+      </if>
+      <if test="dianh3 != null" >
+        #{dianh3,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjzl3 != null" >
+        #{zhengjzl3,jdbcType=OTHER},
+      </if>
+      <if test="zhengjhm3 != null" >
+        #{zhengjhm3,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjyxqz3 != null" >
+        #{zhengjyxqz3,jdbcType=DATE},
+      </if>
+      <if test="zhangq3 != null" >
+        #{zhangq3,jdbcType=VARCHAR},
+      </if>
+      <if test="kongggdhsjkzr1 != null" >
+        #{kongggdhsjkzr1,jdbcType=VARCHAR},
+      </if>
+      <if test="xingm4 != null" >
+        #{xingm4,jdbcType=VARCHAR},
+      </if>
+      <if test="dianh4 != null" >
+        #{dianh4,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjzl4 != null" >
+        #{zhengjzl4,jdbcType=OTHER},
+      </if>
+      <if test="zhengjhm4 != null" >
+        #{zhengjhm4,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjyxqz4 != null" >
+        #{zhengjyxqz4,jdbcType=DATE},
+      </if>
+      <if test="zhangq4 != null" >
+        #{zhangq4,jdbcType=VARCHAR},
+      </if>
+      <if test="hangyfl != null" >
+        #{hangyfl,jdbcType=OTHER},
+      </if>
+      <if test="zhuczj != null" >
+        #{zhuczj,jdbcType=DECIMAL},
+      </if>
+      <if test="diqdm != null" >
+        #{diqdm,jdbcType=VARCHAR},
+      </if>
+      <if test="jingyfw != null" >
+        #{jingyfw,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengmwj1zl != null" >
+        #{zhengmwj1zl,jdbcType=OTHER},
+      </if>
+      <if test="zhengmwj1bh != null" >
+        #{zhengmwj1bh,jdbcType=VARCHAR},
+      </if>
+      <if test="wenjyxq1 != null" >
+        #{wenjyxq1,jdbcType=DATE},
+      </if>
+      <if test="wenjcq1 != null" >
+        #{wenjcq1,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengmwj2zl != null" >
+        #{zhengmwj2zl,jdbcType=OTHER},
+      </if>
+      <if test="zhengmwj2bh != null" >
+        #{zhengmwj2bh,jdbcType=VARCHAR},
+      </if>
+      <if test="wenjyxq2 != null" >
+        #{wenjyxq2,jdbcType=DATE},
+      </if>
+      <if test="wenjcq2 != null" >
+        #{wenjcq2,jdbcType=VARCHAR},
+      </if>
+      <if test="guosdjzh != null" >
+        #{guosdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="disdjzh != null" >
+        #{disdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="guosyxq != null" >
+        #{guosyxq,jdbcType=DATE},
+      </if>
+      <if test="disyxq != null" >
+        #{disyxq,jdbcType=DATE},
+      </if>
+      <if test="guoscq != null" >
+        #{guoscq,jdbcType=VARCHAR},
+      </if>
+      <if test="discq != null" >
+        #{discq,jdbcType=VARCHAR},
+      </if>
+      <if test="zhanghxz != null" >
+        #{zhanghxz,jdbcType=OTHER},
+      </if>
+      <if test="zijxz != null" >
+        #{zijxz,jdbcType=OTHER},
+      </if>
+      <if test="zijyxq != null" >
+        #{zijyxq,jdbcType=DATE},
+      </if>
+      <if test="shangjfrhzgdwmc != null" >
+        #{shangjfrhzgdwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="jibckzhkhxkzhzh != null" >
+        #{jibckzhkhxkzhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjzzjgdm != null" >
+        #{shangjzzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjrylb != null" >
+        #{shangjrylb,jdbcType=OTHER},
+      </if>
+      <if test="shangjfddbr != null" >
+        #{shangjfddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjdwfzr != null" >
+        #{shangjdwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjxm != null" >
+        #{shangjxm,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjzjzl != null" >
+        #{shangjzjzl,jdbcType=OTHER},
+      </if>
+      <if test="shangjzjhm != null" >
+        #{shangjzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="kaihyxmc != null" >
+        #{kaihyxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="kaihyxdm != null" >
+        #{kaihyxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zhanghmc != null" >
+        #{zhanghmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zhangh != null" >
+        #{zhangh,jdbcType=VARCHAR},
+      </if>
+      <if test="yinxckzhkhxkzhzh != null" >
+        #{yinxckzhkhxkzhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="kaihrq != null" >
+        #{kaihrq,jdbcType=DATE},
+      </if>
+      <if test="beiz != null" >
+        #{beiz,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuangt != null" >
+        #{zhuangt,jdbcType=VARCHAR},
+      </if>
+      <if test="chuangjr != null" >
+        #{chuangjr,jdbcType=VARCHAR},
+      </if>
+      <if test="xiugr != null" >
+        #{xiugr,jdbcType=VARCHAR},
+      </if>
+      <if test="chuangjsj != null" >
+        #{chuangjsj,jdbcType=DATE},
+      </if>
+      <if test="xiugsj != null" >
+        #{xiugsj,jdbcType=DATE},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=OTHER},
+      </if>
+      <if test="jiaoydm != null" >
+        #{jiaoydm,jdbcType=VARCHAR},
+      </if>
+      <if test="diqdh != null" >
+        #{diqdh,jdbcType=VARCHAR},
+      </if>
+      <if test="jigdh != null" >
+        #{jigdh,jdbcType=VARCHAR},
+      </if>
+      <if test="jiaoygy != null" >
+        #{jiaoygy,jdbcType=VARCHAR},
+      </if>
+      <if test="zhongddh != null" >
+        #{zhongddh,jdbcType=VARCHAR},
+      </if>
+      <if test="qiydh != null" >
+        #{qiydh,jdbcType=VARCHAR},
+      </if>
+      <if test="guiylsh != null" >
+        #{guiylsh,jdbcType=VARCHAR},
+      </if>
+      <if test="kehdh != null" >
+        #{kehdh,jdbcType=VARCHAR},
+      </if>
+      <if test="kaihyxshyj != null" >
+        #{kaihyxshyj,jdbcType=VARCHAR},
+      </if>
+      <if test="kaihyxshrq != null" >
+        #{kaihyxshrq,jdbcType=DATE},
+      </if>
+      <if test="renmyxshyj != null" >
+        #{renmyxshyj,jdbcType=VARCHAR},
+      </if>
+      <if test="renmyxshrq != null" >
+        #{renmyxshrq,jdbcType=DATE},
+      </if>
+      <if test="jib != null" >
+        #{jib,jdbcType=VARCHAR},
+      </if>
+      <if test="yib != null" >
+        #{yib,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuany != null" >
+        #{zhuany,jdbcType=VARCHAR},
+      </if>
+      <if test="lins != null" >
+        #{lins,jdbcType=VARCHAR},
+      </if>
+      <if test="jigid != null" >
+        #{jigid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.goktech.pojo.DazyhkhExample" resultType="java.lang.Integer" >
+    select count(*) from DZBANK07.DAZYHKH
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update DZBANK07.DAZYHKH
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=OTHER},
+      </if>
+      <if test="record.liush != null" >
+        LIUSH = #{record.liush,jdbcType=OTHER},
+      </if>
+      <if test="record.cunkrmc != null" >
+        CUNKRMC = #{record.cunkrmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cunkrdh != null" >
+        CUNKRDH = #{record.cunkrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhucqy != null" >
+        ZHUCQY = #{record.zhucqy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhucdz != null" >
+        ZHUCDZ = #{record.zhucdz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.youzbm != null" >
+        YOUZBM = #{record.youzbm,jdbcType=OTHER},
+      </if>
+      <if test="record.cunkrlb != null" >
+        CUNKRLB = #{record.cunkrlb,jdbcType=OTHER},
+      </if>
+      <if test="record.zuzjgdm != null" >
+        ZUZJGDM = #{record.zuzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.renylb != null" >
+        RENYLB = #{record.renylb,jdbcType=OTHER},
+      </if>
+      <if test="record.faddbr != null" >
+        FADDBR = #{record.faddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.danwfzr != null" >
+        DANWFZR = #{record.danwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xingm != null" >
+        XINGM = #{record.xingm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dianh != null" >
+        DIANH = #{record.dianh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengjzl != null" >
+        ZHENGJZL = #{record.zhengjzl,jdbcType=OTHER},
+      </if>
+      <if test="record.zhengjhm != null" >
+        ZHENGJHM = #{record.zhengjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengjyxqz != null" >
+        ZHENGJYXQZ = #{record.zhengjyxqz,jdbcType=DATE},
+      </if>
+      <if test="record.zhangq != null" >
+        ZHANGQ = #{record.zhangq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.caiwfzr != null" >
+        CAIWFZR = #{record.caiwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xingm1 != null" >
+        XINGM1 = #{record.xingm1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dianh1 != null" >
+        DIANH1 = #{record.dianh1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengjzl1 != null" >
+        ZHENGJZL1 = #{record.zhengjzl1,jdbcType=OTHER},
+      </if>
+      <if test="record.zhengjhm1 != null" >
+        ZHENGJHM1 = #{record.zhengjhm1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengjyxqz1 != null" >
+        ZHENGJYXQZ1 = #{record.zhengjyxqz1,jdbcType=DATE},
+      </if>
+      <if test="record.zhangq1 != null" >
+        ZHANGQ1 = #{record.zhangq1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shouqjbr != null" >
+        SHOUQJBR = #{record.shouqjbr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xingm2 != null" >
+        XINGM2 = #{record.xingm2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dianh2 != null" >
+        DIANH2 = #{record.dianh2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengjzl2 != null" >
+        ZHENGJZL2 = #{record.zhengjzl2,jdbcType=OTHER},
+      </if>
+      <if test="record.zhengjhm2 != null" >
+        ZHENGJHM2 = #{record.zhengjhm2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengjyxqz2 != null" >
+        ZHENGJYXQZ2 = #{record.zhengjyxqz2,jdbcType=DATE},
+      </if>
+      <if test="record.zhangq2 != null" >
+        ZHANGQ2 = #{record.zhangq2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kongggdhsjkzr != null" >
+        KONGGGDHSJKZR = #{record.kongggdhsjkzr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xingm3 != null" >
+        XINGM3 = #{record.xingm3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dianh3 != null" >
+        DIANH3 = #{record.dianh3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengjzl3 != null" >
+        ZHENGJZL3 = #{record.zhengjzl3,jdbcType=OTHER},
+      </if>
+      <if test="record.zhengjhm3 != null" >
+        ZHENGJHM3 = #{record.zhengjhm3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengjyxqz3 != null" >
+        ZHENGJYXQZ3 = #{record.zhengjyxqz3,jdbcType=DATE},
+      </if>
+      <if test="record.zhangq3 != null" >
+        ZHANGQ3 = #{record.zhangq3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kongggdhsjkzr1 != null" >
+        KONGGGDHSJKZR1 = #{record.kongggdhsjkzr1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xingm4 != null" >
+        XINGM4 = #{record.xingm4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dianh4 != null" >
+        DIANH4 = #{record.dianh4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengjzl4 != null" >
+        ZHENGJZL4 = #{record.zhengjzl4,jdbcType=OTHER},
+      </if>
+      <if test="record.zhengjhm4 != null" >
+        ZHENGJHM4 = #{record.zhengjhm4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengjyxqz4 != null" >
+        ZHENGJYXQZ4 = #{record.zhengjyxqz4,jdbcType=DATE},
+      </if>
+      <if test="record.zhangq4 != null" >
+        ZHANGQ4 = #{record.zhangq4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hangyfl != null" >
+        HANGYFL = #{record.hangyfl,jdbcType=OTHER},
+      </if>
+      <if test="record.zhuczj != null" >
+        ZHUCZJ = #{record.zhuczj,jdbcType=DECIMAL},
+      </if>
+      <if test="record.diqdm != null" >
+        DIQDM = #{record.diqdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jingyfw != null" >
+        JINGYFW = #{record.jingyfw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengmwj1zl != null" >
+        ZHENGMWJ1ZL = #{record.zhengmwj1zl,jdbcType=OTHER},
+      </if>
+      <if test="record.zhengmwj1bh != null" >
+        ZHENGMWJ1BH = #{record.zhengmwj1bh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wenjyxq1 != null" >
+        WENJYXQ1 = #{record.wenjyxq1,jdbcType=DATE},
+      </if>
+      <if test="record.wenjcq1 != null" >
+        WENJCQ1 = #{record.wenjcq1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhengmwj2zl != null" >
+        ZHENGMWJ2ZL = #{record.zhengmwj2zl,jdbcType=OTHER},
+      </if>
+      <if test="record.zhengmwj2bh != null" >
+        ZHENGMWJ2BH = #{record.zhengmwj2bh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wenjyxq2 != null" >
+        WENJYXQ2 = #{record.wenjyxq2,jdbcType=DATE},
+      </if>
+      <if test="record.wenjcq2 != null" >
+        WENJCQ2 = #{record.wenjcq2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guosdjzh != null" >
+        GUOSDJZH = #{record.guosdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.disdjzh != null" >
+        DISDJZH = #{record.disdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guosyxq != null" >
+        GUOSYXQ = #{record.guosyxq,jdbcType=DATE},
+      </if>
+      <if test="record.disyxq != null" >
+        DISYXQ = #{record.disyxq,jdbcType=DATE},
+      </if>
+      <if test="record.guoscq != null" >
+        GUOSCQ = #{record.guoscq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.discq != null" >
+        DISCQ = #{record.discq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhanghxz != null" >
+        ZHANGHXZ = #{record.zhanghxz,jdbcType=OTHER},
+      </if>
+      <if test="record.zijxz != null" >
+        ZIJXZ = #{record.zijxz,jdbcType=OTHER},
+      </if>
+      <if test="record.zijyxq != null" >
+        ZIJYXQ = #{record.zijyxq,jdbcType=DATE},
+      </if>
+      <if test="record.shangjfrhzgdwmc != null" >
+        SHANGJFRHZGDWMC = #{record.shangjfrhzgdwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jibckzhkhxkzhzh != null" >
+        JIBCKZHKHXKZHZH = #{record.jibckzhkhxkzhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shangjzzjgdm != null" >
+        SHANGJZZJGDM = #{record.shangjzzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shangjrylb != null" >
+        SHANGJRYLB = #{record.shangjrylb,jdbcType=OTHER},
+      </if>
+      <if test="record.shangjfddbr != null" >
+        SHANGJFDDBR = #{record.shangjfddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shangjdwfzr != null" >
+        SHANGJDWFZR = #{record.shangjdwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shangjxm != null" >
+        SHANGJXM = #{record.shangjxm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shangjzjzl != null" >
+        SHANGJZJZL = #{record.shangjzjzl,jdbcType=OTHER},
+      </if>
+      <if test="record.shangjzjhm != null" >
+        SHANGJZJHM = #{record.shangjzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kaihyxmc != null" >
+        KAIHYXMC = #{record.kaihyxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kaihyxdm != null" >
+        KAIHYXDM = #{record.kaihyxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhanghmc != null" >
+        ZHANGHMC = #{record.zhanghmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhangh != null" >
+        ZHANGH = #{record.zhangh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yinxckzhkhxkzhzh != null" >
+        YINXCKZHKHXKZHZH = #{record.yinxckzhkhxkzhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kaihrq != null" >
+        KAIHRQ = #{record.kaihrq,jdbcType=DATE},
+      </if>
+      <if test="record.beiz != null" >
+        BEIZ = #{record.beiz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhuangt != null" >
+        ZHUANGT = #{record.zhuangt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chuangjr != null" >
+        CHUANGJR = #{record.chuangjr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xiugr != null" >
+        XIUGR = #{record.xiugr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chuangjsj != null" >
+        CHUANGJSJ = #{record.chuangjsj,jdbcType=DATE},
+      </if>
+      <if test="record.xiugsj != null" >
+        XIUGSJ = #{record.xiugsj,jdbcType=DATE},
+      </if>
+      <if test="record.userid != null" >
+        USERID = #{record.userid,jdbcType=OTHER},
+      </if>
+      <if test="record.jiaoydm != null" >
+        JIAOYDM = #{record.jiaoydm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diqdh != null" >
+        DIQDH = #{record.diqdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jigdh != null" >
+        JIGDH = #{record.jigdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jiaoygy != null" >
+        JIAOYGY = #{record.jiaoygy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhongddh != null" >
+        ZHONGDDH = #{record.zhongddh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qiydh != null" >
+        QIYDH = #{record.qiydh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guiylsh != null" >
+        GUIYLSH = #{record.guiylsh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kehdh != null" >
+        KEHDH = #{record.kehdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kaihyxshyj != null" >
+        KAIHYXSHYJ = #{record.kaihyxshyj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kaihyxshrq != null" >
+        KAIHYXSHRQ = #{record.kaihyxshrq,jdbcType=DATE},
+      </if>
+      <if test="record.renmyxshyj != null" >
+        RENMYXSHYJ = #{record.renmyxshyj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.renmyxshrq != null" >
+        RENMYXSHRQ = #{record.renmyxshrq,jdbcType=DATE},
+      </if>
+      <if test="record.jib != null" >
+        JIB = #{record.jib,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yib != null" >
+        YIB = #{record.yib,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhuany != null" >
+        ZHUANY = #{record.zhuany,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lins != null" >
+        LINS = #{record.lins,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jigid != null" >
+        JIGID = #{record.jigid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update DZBANK07.DAZYHKH
+    set ID = #{record.id,jdbcType=OTHER},
+      LIUSH = #{record.liush,jdbcType=OTHER},
+      CUNKRMC = #{record.cunkrmc,jdbcType=VARCHAR},
+      CUNKRDH = #{record.cunkrdh,jdbcType=VARCHAR},
+      ZHUCQY = #{record.zhucqy,jdbcType=VARCHAR},
+      ZHUCDZ = #{record.zhucdz,jdbcType=VARCHAR},
+      YOUZBM = #{record.youzbm,jdbcType=OTHER},
+      CUNKRLB = #{record.cunkrlb,jdbcType=OTHER},
+      ZUZJGDM = #{record.zuzjgdm,jdbcType=VARCHAR},
+      RENYLB = #{record.renylb,jdbcType=OTHER},
+      FADDBR = #{record.faddbr,jdbcType=VARCHAR},
+      DANWFZR = #{record.danwfzr,jdbcType=VARCHAR},
+      XINGM = #{record.xingm,jdbcType=VARCHAR},
+      DIANH = #{record.dianh,jdbcType=VARCHAR},
+      ZHENGJZL = #{record.zhengjzl,jdbcType=OTHER},
+      ZHENGJHM = #{record.zhengjhm,jdbcType=VARCHAR},
+      ZHENGJYXQZ = #{record.zhengjyxqz,jdbcType=DATE},
+      ZHANGQ = #{record.zhangq,jdbcType=VARCHAR},
+      CAIWFZR = #{record.caiwfzr,jdbcType=VARCHAR},
+      XINGM1 = #{record.xingm1,jdbcType=VARCHAR},
+      DIANH1 = #{record.dianh1,jdbcType=VARCHAR},
+      ZHENGJZL1 = #{record.zhengjzl1,jdbcType=OTHER},
+      ZHENGJHM1 = #{record.zhengjhm1,jdbcType=VARCHAR},
+      ZHENGJYXQZ1 = #{record.zhengjyxqz1,jdbcType=DATE},
+      ZHANGQ1 = #{record.zhangq1,jdbcType=VARCHAR},
+      SHOUQJBR = #{record.shouqjbr,jdbcType=VARCHAR},
+      XINGM2 = #{record.xingm2,jdbcType=VARCHAR},
+      DIANH2 = #{record.dianh2,jdbcType=VARCHAR},
+      ZHENGJZL2 = #{record.zhengjzl2,jdbcType=OTHER},
+      ZHENGJHM2 = #{record.zhengjhm2,jdbcType=VARCHAR},
+      ZHENGJYXQZ2 = #{record.zhengjyxqz2,jdbcType=DATE},
+      ZHANGQ2 = #{record.zhangq2,jdbcType=VARCHAR},
+      KONGGGDHSJKZR = #{record.kongggdhsjkzr,jdbcType=VARCHAR},
+      XINGM3 = #{record.xingm3,jdbcType=VARCHAR},
+      DIANH3 = #{record.dianh3,jdbcType=VARCHAR},
+      ZHENGJZL3 = #{record.zhengjzl3,jdbcType=OTHER},
+      ZHENGJHM3 = #{record.zhengjhm3,jdbcType=VARCHAR},
+      ZHENGJYXQZ3 = #{record.zhengjyxqz3,jdbcType=DATE},
+      ZHANGQ3 = #{record.zhangq3,jdbcType=VARCHAR},
+      KONGGGDHSJKZR1 = #{record.kongggdhsjkzr1,jdbcType=VARCHAR},
+      XINGM4 = #{record.xingm4,jdbcType=VARCHAR},
+      DIANH4 = #{record.dianh4,jdbcType=VARCHAR},
+      ZHENGJZL4 = #{record.zhengjzl4,jdbcType=OTHER},
+      ZHENGJHM4 = #{record.zhengjhm4,jdbcType=VARCHAR},
+      ZHENGJYXQZ4 = #{record.zhengjyxqz4,jdbcType=DATE},
+      ZHANGQ4 = #{record.zhangq4,jdbcType=VARCHAR},
+      HANGYFL = #{record.hangyfl,jdbcType=OTHER},
+      ZHUCZJ = #{record.zhuczj,jdbcType=DECIMAL},
+      DIQDM = #{record.diqdm,jdbcType=VARCHAR},
+      JINGYFW = #{record.jingyfw,jdbcType=VARCHAR},
+      ZHENGMWJ1ZL = #{record.zhengmwj1zl,jdbcType=OTHER},
+      ZHENGMWJ1BH = #{record.zhengmwj1bh,jdbcType=VARCHAR},
+      WENJYXQ1 = #{record.wenjyxq1,jdbcType=DATE},
+      WENJCQ1 = #{record.wenjcq1,jdbcType=VARCHAR},
+      ZHENGMWJ2ZL = #{record.zhengmwj2zl,jdbcType=OTHER},
+      ZHENGMWJ2BH = #{record.zhengmwj2bh,jdbcType=VARCHAR},
+      WENJYXQ2 = #{record.wenjyxq2,jdbcType=DATE},
+      WENJCQ2 = #{record.wenjcq2,jdbcType=VARCHAR},
+      GUOSDJZH = #{record.guosdjzh,jdbcType=VARCHAR},
+      DISDJZH = #{record.disdjzh,jdbcType=VARCHAR},
+      GUOSYXQ = #{record.guosyxq,jdbcType=DATE},
+      DISYXQ = #{record.disyxq,jdbcType=DATE},
+      GUOSCQ = #{record.guoscq,jdbcType=VARCHAR},
+      DISCQ = #{record.discq,jdbcType=VARCHAR},
+      ZHANGHXZ = #{record.zhanghxz,jdbcType=OTHER},
+      ZIJXZ = #{record.zijxz,jdbcType=OTHER},
+      ZIJYXQ = #{record.zijyxq,jdbcType=DATE},
+      SHANGJFRHZGDWMC = #{record.shangjfrhzgdwmc,jdbcType=VARCHAR},
+      JIBCKZHKHXKZHZH = #{record.jibckzhkhxkzhzh,jdbcType=VARCHAR},
+      SHANGJZZJGDM = #{record.shangjzzjgdm,jdbcType=VARCHAR},
+      SHANGJRYLB = #{record.shangjrylb,jdbcType=OTHER},
+      SHANGJFDDBR = #{record.shangjfddbr,jdbcType=VARCHAR},
+      SHANGJDWFZR = #{record.shangjdwfzr,jdbcType=VARCHAR},
+      SHANGJXM = #{record.shangjxm,jdbcType=VARCHAR},
+      SHANGJZJZL = #{record.shangjzjzl,jdbcType=OTHER},
+      SHANGJZJHM = #{record.shangjzjhm,jdbcType=VARCHAR},
+      KAIHYXMC = #{record.kaihyxmc,jdbcType=VARCHAR},
+      KAIHYXDM = #{record.kaihyxdm,jdbcType=VARCHAR},
+      ZHANGHMC = #{record.zhanghmc,jdbcType=VARCHAR},
+      ZHANGH = #{record.zhangh,jdbcType=VARCHAR},
+      YINXCKZHKHXKZHZH = #{record.yinxckzhkhxkzhzh,jdbcType=VARCHAR},
+      KAIHRQ = #{record.kaihrq,jdbcType=DATE},
+      BEIZ = #{record.beiz,jdbcType=VARCHAR},
+      ZHUANGT = #{record.zhuangt,jdbcType=VARCHAR},
+      CHUANGJR = #{record.chuangjr,jdbcType=VARCHAR},
+      XIUGR = #{record.xiugr,jdbcType=VARCHAR},
+      CHUANGJSJ = #{record.chuangjsj,jdbcType=DATE},
+      XIUGSJ = #{record.xiugsj,jdbcType=DATE},
+      USERID = #{record.userid,jdbcType=OTHER},
+      JIAOYDM = #{record.jiaoydm,jdbcType=VARCHAR},
+      DIQDH = #{record.diqdh,jdbcType=VARCHAR},
+      JIGDH = #{record.jigdh,jdbcType=VARCHAR},
+      JIAOYGY = #{record.jiaoygy,jdbcType=VARCHAR},
+      ZHONGDDH = #{record.zhongddh,jdbcType=VARCHAR},
+      QIYDH = #{record.qiydh,jdbcType=VARCHAR},
+      GUIYLSH = #{record.guiylsh,jdbcType=VARCHAR},
+      KEHDH = #{record.kehdh,jdbcType=VARCHAR},
+      KAIHYXSHYJ = #{record.kaihyxshyj,jdbcType=VARCHAR},
+      KAIHYXSHRQ = #{record.kaihyxshrq,jdbcType=DATE},
+      RENMYXSHYJ = #{record.renmyxshyj,jdbcType=VARCHAR},
+      RENMYXSHRQ = #{record.renmyxshrq,jdbcType=DATE},
+      JIB = #{record.jib,jdbcType=VARCHAR},
+      YIB = #{record.yib,jdbcType=VARCHAR},
+      ZHUANY = #{record.zhuany,jdbcType=VARCHAR},
+      LINS = #{record.lins,jdbcType=VARCHAR},
+      JIGID = #{record.jigid,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.goktech.pojo.Dazyhkh" >
+    update DZBANK07.DAZYHKH
+    <set >
+      <if test="liush != null" >
+        LIUSH = #{liush,jdbcType=OTHER},
+      </if>
+      <if test="cunkrmc != null" >
+        CUNKRMC = #{cunkrmc,jdbcType=VARCHAR},
+      </if>
+      <if test="cunkrdh != null" >
+        CUNKRDH = #{cunkrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="zhucqy != null" >
+        ZHUCQY = #{zhucqy,jdbcType=VARCHAR},
+      </if>
+      <if test="zhucdz != null" >
+        ZHUCDZ = #{zhucdz,jdbcType=VARCHAR},
+      </if>
+      <if test="youzbm != null" >
+        YOUZBM = #{youzbm,jdbcType=OTHER},
+      </if>
+      <if test="cunkrlb != null" >
+        CUNKRLB = #{cunkrlb,jdbcType=OTHER},
+      </if>
+      <if test="zuzjgdm != null" >
+        ZUZJGDM = #{zuzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="renylb != null" >
+        RENYLB = #{renylb,jdbcType=OTHER},
+      </if>
+      <if test="faddbr != null" >
+        FADDBR = #{faddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="danwfzr != null" >
+        DANWFZR = #{danwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="xingm != null" >
+        XINGM = #{xingm,jdbcType=VARCHAR},
+      </if>
+      <if test="dianh != null" >
+        DIANH = #{dianh,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjzl != null" >
+        ZHENGJZL = #{zhengjzl,jdbcType=OTHER},
+      </if>
+      <if test="zhengjhm != null" >
+        ZHENGJHM = #{zhengjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjyxqz != null" >
+        ZHENGJYXQZ = #{zhengjyxqz,jdbcType=DATE},
+      </if>
+      <if test="zhangq != null" >
+        ZHANGQ = #{zhangq,jdbcType=VARCHAR},
+      </if>
+      <if test="caiwfzr != null" >
+        CAIWFZR = #{caiwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="xingm1 != null" >
+        XINGM1 = #{xingm1,jdbcType=VARCHAR},
+      </if>
+      <if test="dianh1 != null" >
+        DIANH1 = #{dianh1,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjzl1 != null" >
+        ZHENGJZL1 = #{zhengjzl1,jdbcType=OTHER},
+      </if>
+      <if test="zhengjhm1 != null" >
+        ZHENGJHM1 = #{zhengjhm1,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjyxqz1 != null" >
+        ZHENGJYXQZ1 = #{zhengjyxqz1,jdbcType=DATE},
+      </if>
+      <if test="zhangq1 != null" >
+        ZHANGQ1 = #{zhangq1,jdbcType=VARCHAR},
+      </if>
+      <if test="shouqjbr != null" >
+        SHOUQJBR = #{shouqjbr,jdbcType=VARCHAR},
+      </if>
+      <if test="xingm2 != null" >
+        XINGM2 = #{xingm2,jdbcType=VARCHAR},
+      </if>
+      <if test="dianh2 != null" >
+        DIANH2 = #{dianh2,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjzl2 != null" >
+        ZHENGJZL2 = #{zhengjzl2,jdbcType=OTHER},
+      </if>
+      <if test="zhengjhm2 != null" >
+        ZHENGJHM2 = #{zhengjhm2,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjyxqz2 != null" >
+        ZHENGJYXQZ2 = #{zhengjyxqz2,jdbcType=DATE},
+      </if>
+      <if test="zhangq2 != null" >
+        ZHANGQ2 = #{zhangq2,jdbcType=VARCHAR},
+      </if>
+      <if test="kongggdhsjkzr != null" >
+        KONGGGDHSJKZR = #{kongggdhsjkzr,jdbcType=VARCHAR},
+      </if>
+      <if test="xingm3 != null" >
+        XINGM3 = #{xingm3,jdbcType=VARCHAR},
+      </if>
+      <if test="dianh3 != null" >
+        DIANH3 = #{dianh3,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjzl3 != null" >
+        ZHENGJZL3 = #{zhengjzl3,jdbcType=OTHER},
+      </if>
+      <if test="zhengjhm3 != null" >
+        ZHENGJHM3 = #{zhengjhm3,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjyxqz3 != null" >
+        ZHENGJYXQZ3 = #{zhengjyxqz3,jdbcType=DATE},
+      </if>
+      <if test="zhangq3 != null" >
+        ZHANGQ3 = #{zhangq3,jdbcType=VARCHAR},
+      </if>
+      <if test="kongggdhsjkzr1 != null" >
+        KONGGGDHSJKZR1 = #{kongggdhsjkzr1,jdbcType=VARCHAR},
+      </if>
+      <if test="xingm4 != null" >
+        XINGM4 = #{xingm4,jdbcType=VARCHAR},
+      </if>
+      <if test="dianh4 != null" >
+        DIANH4 = #{dianh4,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjzl4 != null" >
+        ZHENGJZL4 = #{zhengjzl4,jdbcType=OTHER},
+      </if>
+      <if test="zhengjhm4 != null" >
+        ZHENGJHM4 = #{zhengjhm4,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengjyxqz4 != null" >
+        ZHENGJYXQZ4 = #{zhengjyxqz4,jdbcType=DATE},
+      </if>
+      <if test="zhangq4 != null" >
+        ZHANGQ4 = #{zhangq4,jdbcType=VARCHAR},
+      </if>
+      <if test="hangyfl != null" >
+        HANGYFL = #{hangyfl,jdbcType=OTHER},
+      </if>
+      <if test="zhuczj != null" >
+        ZHUCZJ = #{zhuczj,jdbcType=DECIMAL},
+      </if>
+      <if test="diqdm != null" >
+        DIQDM = #{diqdm,jdbcType=VARCHAR},
+      </if>
+      <if test="jingyfw != null" >
+        JINGYFW = #{jingyfw,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengmwj1zl != null" >
+        ZHENGMWJ1ZL = #{zhengmwj1zl,jdbcType=OTHER},
+      </if>
+      <if test="zhengmwj1bh != null" >
+        ZHENGMWJ1BH = #{zhengmwj1bh,jdbcType=VARCHAR},
+      </if>
+      <if test="wenjyxq1 != null" >
+        WENJYXQ1 = #{wenjyxq1,jdbcType=DATE},
+      </if>
+      <if test="wenjcq1 != null" >
+        WENJCQ1 = #{wenjcq1,jdbcType=VARCHAR},
+      </if>
+      <if test="zhengmwj2zl != null" >
+        ZHENGMWJ2ZL = #{zhengmwj2zl,jdbcType=OTHER},
+      </if>
+      <if test="zhengmwj2bh != null" >
+        ZHENGMWJ2BH = #{zhengmwj2bh,jdbcType=VARCHAR},
+      </if>
+      <if test="wenjyxq2 != null" >
+        WENJYXQ2 = #{wenjyxq2,jdbcType=DATE},
+      </if>
+      <if test="wenjcq2 != null" >
+        WENJCQ2 = #{wenjcq2,jdbcType=VARCHAR},
+      </if>
+      <if test="guosdjzh != null" >
+        GUOSDJZH = #{guosdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="disdjzh != null" >
+        DISDJZH = #{disdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="guosyxq != null" >
+        GUOSYXQ = #{guosyxq,jdbcType=DATE},
+      </if>
+      <if test="disyxq != null" >
+        DISYXQ = #{disyxq,jdbcType=DATE},
+      </if>
+      <if test="guoscq != null" >
+        GUOSCQ = #{guoscq,jdbcType=VARCHAR},
+      </if>
+      <if test="discq != null" >
+        DISCQ = #{discq,jdbcType=VARCHAR},
+      </if>
+      <if test="zhanghxz != null" >
+        ZHANGHXZ = #{zhanghxz,jdbcType=OTHER},
+      </if>
+      <if test="zijxz != null" >
+        ZIJXZ = #{zijxz,jdbcType=OTHER},
+      </if>
+      <if test="zijyxq != null" >
+        ZIJYXQ = #{zijyxq,jdbcType=DATE},
+      </if>
+      <if test="shangjfrhzgdwmc != null" >
+        SHANGJFRHZGDWMC = #{shangjfrhzgdwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="jibckzhkhxkzhzh != null" >
+        JIBCKZHKHXKZHZH = #{jibckzhkhxkzhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjzzjgdm != null" >
+        SHANGJZZJGDM = #{shangjzzjgdm,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjrylb != null" >
+        SHANGJRYLB = #{shangjrylb,jdbcType=OTHER},
+      </if>
+      <if test="shangjfddbr != null" >
+        SHANGJFDDBR = #{shangjfddbr,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjdwfzr != null" >
+        SHANGJDWFZR = #{shangjdwfzr,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjxm != null" >
+        SHANGJXM = #{shangjxm,jdbcType=VARCHAR},
+      </if>
+      <if test="shangjzjzl != null" >
+        SHANGJZJZL = #{shangjzjzl,jdbcType=OTHER},
+      </if>
+      <if test="shangjzjhm != null" >
+        SHANGJZJHM = #{shangjzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="kaihyxmc != null" >
+        KAIHYXMC = #{kaihyxmc,jdbcType=VARCHAR},
+      </if>
+      <if test="kaihyxdm != null" >
+        KAIHYXDM = #{kaihyxdm,jdbcType=VARCHAR},
+      </if>
+      <if test="zhanghmc != null" >
+        ZHANGHMC = #{zhanghmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zhangh != null" >
+        ZHANGH = #{zhangh,jdbcType=VARCHAR},
+      </if>
+      <if test="yinxckzhkhxkzhzh != null" >
+        YINXCKZHKHXKZHZH = #{yinxckzhkhxkzhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="kaihrq != null" >
+        KAIHRQ = #{kaihrq,jdbcType=DATE},
+      </if>
+      <if test="beiz != null" >
+        BEIZ = #{beiz,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuangt != null" >
+        ZHUANGT = #{zhuangt,jdbcType=VARCHAR},
+      </if>
+      <if test="chuangjr != null" >
+        CHUANGJR = #{chuangjr,jdbcType=VARCHAR},
+      </if>
+      <if test="xiugr != null" >
+        XIUGR = #{xiugr,jdbcType=VARCHAR},
+      </if>
+      <if test="chuangjsj != null" >
+        CHUANGJSJ = #{chuangjsj,jdbcType=DATE},
+      </if>
+      <if test="xiugsj != null" >
+        XIUGSJ = #{xiugsj,jdbcType=DATE},
+      </if>
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=OTHER},
+      </if>
+      <if test="jiaoydm != null" >
+        JIAOYDM = #{jiaoydm,jdbcType=VARCHAR},
+      </if>
+      <if test="diqdh != null" >
+        DIQDH = #{diqdh,jdbcType=VARCHAR},
+      </if>
+      <if test="jigdh != null" >
+        JIGDH = #{jigdh,jdbcType=VARCHAR},
+      </if>
+      <if test="jiaoygy != null" >
+        JIAOYGY = #{jiaoygy,jdbcType=VARCHAR},
+      </if>
+      <if test="zhongddh != null" >
+        ZHONGDDH = #{zhongddh,jdbcType=VARCHAR},
+      </if>
+      <if test="qiydh != null" >
+        QIYDH = #{qiydh,jdbcType=VARCHAR},
+      </if>
+      <if test="guiylsh != null" >
+        GUIYLSH = #{guiylsh,jdbcType=VARCHAR},
+      </if>
+      <if test="kehdh != null" >
+        KEHDH = #{kehdh,jdbcType=VARCHAR},
+      </if>
+      <if test="kaihyxshyj != null" >
+        KAIHYXSHYJ = #{kaihyxshyj,jdbcType=VARCHAR},
+      </if>
+      <if test="kaihyxshrq != null" >
+        KAIHYXSHRQ = #{kaihyxshrq,jdbcType=DATE},
+      </if>
+      <if test="renmyxshyj != null" >
+        RENMYXSHYJ = #{renmyxshyj,jdbcType=VARCHAR},
+      </if>
+      <if test="renmyxshrq != null" >
+        RENMYXSHRQ = #{renmyxshrq,jdbcType=DATE},
+      </if>
+      <if test="jib != null" >
+        JIB = #{jib,jdbcType=VARCHAR},
+      </if>
+      <if test="yib != null" >
+        YIB = #{yib,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuany != null" >
+        ZHUANY = #{zhuany,jdbcType=VARCHAR},
+      </if>
+      <if test="lins != null" >
+        LINS = #{lins,jdbcType=VARCHAR},
+      </if>
+      <if test="jigid != null" >
+        JIGID = #{jigid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=OTHER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.goktech.pojo.Dazyhkh" >
+    update DZBANK07.DAZYHKH
+    set LIUSH = #{liush,jdbcType=OTHER},
+      CUNKRMC = #{cunkrmc,jdbcType=VARCHAR},
+      CUNKRDH = #{cunkrdh,jdbcType=VARCHAR},
+      ZHUCQY = #{zhucqy,jdbcType=VARCHAR},
+      ZHUCDZ = #{zhucdz,jdbcType=VARCHAR},
+      YOUZBM = #{youzbm,jdbcType=OTHER},
+      CUNKRLB = #{cunkrlb,jdbcType=OTHER},
+      ZUZJGDM = #{zuzjgdm,jdbcType=VARCHAR},
+      RENYLB = #{renylb,jdbcType=OTHER},
+      FADDBR = #{faddbr,jdbcType=VARCHAR},
+      DANWFZR = #{danwfzr,jdbcType=VARCHAR},
+      XINGM = #{xingm,jdbcType=VARCHAR},
+      DIANH = #{dianh,jdbcType=VARCHAR},
+      ZHENGJZL = #{zhengjzl,jdbcType=OTHER},
+      ZHENGJHM = #{zhengjhm,jdbcType=VARCHAR},
+      ZHENGJYXQZ = #{zhengjyxqz,jdbcType=DATE},
+      ZHANGQ = #{zhangq,jdbcType=VARCHAR},
+      CAIWFZR = #{caiwfzr,jdbcType=VARCHAR},
+      XINGM1 = #{xingm1,jdbcType=VARCHAR},
+      DIANH1 = #{dianh1,jdbcType=VARCHAR},
+      ZHENGJZL1 = #{zhengjzl1,jdbcType=OTHER},
+      ZHENGJHM1 = #{zhengjhm1,jdbcType=VARCHAR},
+      ZHENGJYXQZ1 = #{zhengjyxqz1,jdbcType=DATE},
+      ZHANGQ1 = #{zhangq1,jdbcType=VARCHAR},
+      SHOUQJBR = #{shouqjbr,jdbcType=VARCHAR},
+      XINGM2 = #{xingm2,jdbcType=VARCHAR},
+      DIANH2 = #{dianh2,jdbcType=VARCHAR},
+      ZHENGJZL2 = #{zhengjzl2,jdbcType=OTHER},
+      ZHENGJHM2 = #{zhengjhm2,jdbcType=VARCHAR},
+      ZHENGJYXQZ2 = #{zhengjyxqz2,jdbcType=DATE},
+      ZHANGQ2 = #{zhangq2,jdbcType=VARCHAR},
+      KONGGGDHSJKZR = #{kongggdhsjkzr,jdbcType=VARCHAR},
+      XINGM3 = #{xingm3,jdbcType=VARCHAR},
+      DIANH3 = #{dianh3,jdbcType=VARCHAR},
+      ZHENGJZL3 = #{zhengjzl3,jdbcType=OTHER},
+      ZHENGJHM3 = #{zhengjhm3,jdbcType=VARCHAR},
+      ZHENGJYXQZ3 = #{zhengjyxqz3,jdbcType=DATE},
+      ZHANGQ3 = #{zhangq3,jdbcType=VARCHAR},
+      KONGGGDHSJKZR1 = #{kongggdhsjkzr1,jdbcType=VARCHAR},
+      XINGM4 = #{xingm4,jdbcType=VARCHAR},
+      DIANH4 = #{dianh4,jdbcType=VARCHAR},
+      ZHENGJZL4 = #{zhengjzl4,jdbcType=OTHER},
+      ZHENGJHM4 = #{zhengjhm4,jdbcType=VARCHAR},
+      ZHENGJYXQZ4 = #{zhengjyxqz4,jdbcType=DATE},
+      ZHANGQ4 = #{zhangq4,jdbcType=VARCHAR},
+      HANGYFL = #{hangyfl,jdbcType=OTHER},
+      ZHUCZJ = #{zhuczj,jdbcType=DECIMAL},
+      DIQDM = #{diqdm,jdbcType=VARCHAR},
+      JINGYFW = #{jingyfw,jdbcType=VARCHAR},
+      ZHENGMWJ1ZL = #{zhengmwj1zl,jdbcType=OTHER},
+      ZHENGMWJ1BH = #{zhengmwj1bh,jdbcType=VARCHAR},
+      WENJYXQ1 = #{wenjyxq1,jdbcType=DATE},
+      WENJCQ1 = #{wenjcq1,jdbcType=VARCHAR},
+      ZHENGMWJ2ZL = #{zhengmwj2zl,jdbcType=OTHER},
+      ZHENGMWJ2BH = #{zhengmwj2bh,jdbcType=VARCHAR},
+      WENJYXQ2 = #{wenjyxq2,jdbcType=DATE},
+      WENJCQ2 = #{wenjcq2,jdbcType=VARCHAR},
+      GUOSDJZH = #{guosdjzh,jdbcType=VARCHAR},
+      DISDJZH = #{disdjzh,jdbcType=VARCHAR},
+      GUOSYXQ = #{guosyxq,jdbcType=DATE},
+      DISYXQ = #{disyxq,jdbcType=DATE},
+      GUOSCQ = #{guoscq,jdbcType=VARCHAR},
+      DISCQ = #{discq,jdbcType=VARCHAR},
+      ZHANGHXZ = #{zhanghxz,jdbcType=OTHER},
+      ZIJXZ = #{zijxz,jdbcType=OTHER},
+      ZIJYXQ = #{zijyxq,jdbcType=DATE},
+      SHANGJFRHZGDWMC = #{shangjfrhzgdwmc,jdbcType=VARCHAR},
+      JIBCKZHKHXKZHZH = #{jibckzhkhxkzhzh,jdbcType=VARCHAR},
+      SHANGJZZJGDM = #{shangjzzjgdm,jdbcType=VARCHAR},
+      SHANGJRYLB = #{shangjrylb,jdbcType=OTHER},
+      SHANGJFDDBR = #{shangjfddbr,jdbcType=VARCHAR},
+      SHANGJDWFZR = #{shangjdwfzr,jdbcType=VARCHAR},
+      SHANGJXM = #{shangjxm,jdbcType=VARCHAR},
+      SHANGJZJZL = #{shangjzjzl,jdbcType=OTHER},
+      SHANGJZJHM = #{shangjzjhm,jdbcType=VARCHAR},
+      KAIHYXMC = #{kaihyxmc,jdbcType=VARCHAR},
+      KAIHYXDM = #{kaihyxdm,jdbcType=VARCHAR},
+      ZHANGHMC = #{zhanghmc,jdbcType=VARCHAR},
+      ZHANGH = #{zhangh,jdbcType=VARCHAR},
+      YINXCKZHKHXKZHZH = #{yinxckzhkhxkzhzh,jdbcType=VARCHAR},
+      KAIHRQ = #{kaihrq,jdbcType=DATE},
+      BEIZ = #{beiz,jdbcType=VARCHAR},
+      ZHUANGT = #{zhuangt,jdbcType=VARCHAR},
+      CHUANGJR = #{chuangjr,jdbcType=VARCHAR},
+      XIUGR = #{xiugr,jdbcType=VARCHAR},
+      CHUANGJSJ = #{chuangjsj,jdbcType=DATE},
+      XIUGSJ = #{xiugsj,jdbcType=DATE},
+      USERID = #{userid,jdbcType=OTHER},
+      JIAOYDM = #{jiaoydm,jdbcType=VARCHAR},
+      DIQDH = #{diqdh,jdbcType=VARCHAR},
+      JIGDH = #{jigdh,jdbcType=VARCHAR},
+      JIAOYGY = #{jiaoygy,jdbcType=VARCHAR},
+      ZHONGDDH = #{zhongddh,jdbcType=VARCHAR},
+      QIYDH = #{qiydh,jdbcType=VARCHAR},
+      GUIYLSH = #{guiylsh,jdbcType=VARCHAR},
+      KEHDH = #{kehdh,jdbcType=VARCHAR},
+      KAIHYXSHYJ = #{kaihyxshyj,jdbcType=VARCHAR},
+      KAIHYXSHRQ = #{kaihyxshrq,jdbcType=DATE},
+      RENMYXSHYJ = #{renmyxshyj,jdbcType=VARCHAR},
+      RENMYXSHRQ = #{renmyxshrq,jdbcType=DATE},
+      JIB = #{jib,jdbcType=VARCHAR},
+      YIB = #{yib,jdbcType=VARCHAR},
+      ZHUANY = #{zhuany,jdbcType=VARCHAR},
+      LINS = #{lins,jdbcType=VARCHAR},
+      JIGID = #{jigid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=OTHER}
+  </update>
+</mapper>

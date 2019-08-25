@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.goktech.dao.HexindatarepositoryMapper">
+	<select id="countData" resultType="map">
+		select zhzt,count(*) as value from hexindatarepository group by zhzt
+	</select>
+
+  <resultMap id="BaseResultMap" type="cn.goktech.pojo.Hexindatarepository" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="ZHDH" property="zhdh" jdbcType="VARCHAR" />
+    <result column="KHDH" property="khdh" jdbcType="VARCHAR" />
+    <result column="KHMC" property="khmc" jdbcType="VARCHAR" />
+    <result column="KHXKZHZH" property="khxkzhzh" jdbcType="VARCHAR" />
+    <result column="CKRMC" property="ckrmc" jdbcType="VARCHAR" />
+    <result column="GSMC" property="gsmc" jdbcType="VARCHAR" />
+    <result column="GSYYZZ" property="gsyyzz" jdbcType="VARCHAR" />
+    <result column="GSDJZH" property="gsdjzh" jdbcType="VARCHAR" />
+    <result column="DSDJZH" property="dsdjzh" jdbcType="VARCHAR" />
+    <result column="FRXM" property="frxm" jdbcType="VARCHAR" />
+    <result column="FRZJZL" property="frzjzl" jdbcType="VARCHAR" />
+    <result column="FRZJHM" property="frzjhm" jdbcType="VARCHAR" />
+    <result column="ZCZJZL" property="zczjzl" jdbcType="VARCHAR" />
+    <result column="ZCZJ" property="zczj" jdbcType="VARCHAR" />
+    <result column="JYFW" property="jyfw" jdbcType="VARCHAR" />
+    <result column="DZ" property="dz" jdbcType="VARCHAR" />
+    <result column="YZBM" property="yzbm" jdbcType="VARCHAR" />
+    <result column="KHYHDM" property="khyhdm" jdbcType="VARCHAR" />
+    <result column="KHYHJG" property="khyhjg" jdbcType="VARCHAR" />
+    <result column="ZHXZ" property="zhxz" jdbcType="VARCHAR" />
+    <result column="KHSJ" property="khsj" jdbcType="VARCHAR" />
+    <result column="ZHZT" property="zhzt" jdbcType="VARCHAR" />
+    <result column="ZHMC" property="zhmc" jdbcType="VARCHAR" />
+    <result column="TYSHXYDM" property="tyshxydm" jdbcType="VARCHAR" />
+    <result column="ZJYXQ" property="zjyxq" jdbcType="VARCHAR" />
+    <result column="DQRQ" property="dqrq" jdbcType="VARCHAR" />
+    <result column="NJBJ" property="njbj" jdbcType="VARCHAR" />
+    <result column="ZJZL" property="zjzl" jdbcType="VARCHAR" />
+    <result column="ZJHM" property="zjhm" jdbcType="VARCHAR" />
+    <result column="XHZT" property="xhzt" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, ZHDH, KHDH, KHMC, KHXKZHZH, CKRMC, GSMC, GSYYZZ, GSDJZH, DSDJZH, FRXM, FRZJZL, 
+    FRZJHM, ZCZJZL, ZCZJ, JYFW, DZ, YZBM, KHYHDM, KHYHJG, ZHXZ, KHSJ, ZHZT, ZHMC, TYSHXYDM, 
+    ZJYXQ, DQRQ, NJBJ, ZJZL, ZJHM, XHZT
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.goktech.pojo.HexindatarepositoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from DZBANK07.HEXINDATAREPOSITORY
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="cn.goktech.pojo.HexindatarepositoryExample" >
+    delete from DZBANK07.HEXINDATAREPOSITORY
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.goktech.pojo.Hexindatarepository" >
+    insert into DZBANK07.HEXINDATAREPOSITORY (ID, ZHDH, KHDH, 
+      KHMC, KHXKZHZH, CKRMC, 
+      GSMC, GSYYZZ, GSDJZH, 
+      DSDJZH, FRXM, FRZJZL, 
+      FRZJHM, ZCZJZL, ZCZJ, 
+      JYFW, DZ, YZBM, KHYHDM, 
+      KHYHJG, ZHXZ, KHSJ, 
+      ZHZT, ZHMC, TYSHXYDM, 
+      ZJYXQ, DQRQ, NJBJ, 
+      ZJZL, ZJHM, XHZT)
+    values (#{id,jdbcType=VARCHAR}, #{zhdh,jdbcType=VARCHAR}, #{khdh,jdbcType=VARCHAR}, 
+      #{khmc,jdbcType=VARCHAR}, #{khxkzhzh,jdbcType=VARCHAR}, #{ckrmc,jdbcType=VARCHAR}, 
+      #{gsmc,jdbcType=VARCHAR}, #{gsyyzz,jdbcType=VARCHAR}, #{gsdjzh,jdbcType=VARCHAR}, 
+      #{dsdjzh,jdbcType=VARCHAR}, #{frxm,jdbcType=VARCHAR}, #{frzjzl,jdbcType=VARCHAR}, 
+      #{frzjhm,jdbcType=VARCHAR}, #{zczjzl,jdbcType=VARCHAR}, #{zczj,jdbcType=VARCHAR}, 
+      #{jyfw,jdbcType=VARCHAR}, #{dz,jdbcType=VARCHAR}, #{yzbm,jdbcType=VARCHAR}, #{khyhdm,jdbcType=VARCHAR}, 
+      #{khyhjg,jdbcType=VARCHAR}, #{zhxz,jdbcType=VARCHAR}, #{khsj,jdbcType=VARCHAR}, 
+      #{zhzt,jdbcType=VARCHAR}, #{zhmc,jdbcType=VARCHAR}, #{tyshxydm,jdbcType=VARCHAR}, 
+      #{zjyxq,jdbcType=VARCHAR}, #{dqrq,jdbcType=VARCHAR}, #{njbj,jdbcType=VARCHAR}, 
+      #{zjzl,jdbcType=VARCHAR}, #{zjhm,jdbcType=VARCHAR}, #{xhzt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.goktech.pojo.Hexindatarepository" >
+    insert into DZBANK07.HEXINDATAREPOSITORY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="zhdh != null" >
+        ZHDH,
+      </if>
+      <if test="khdh != null" >
+        KHDH,
+      </if>
+      <if test="khmc != null" >
+        KHMC,
+      </if>
+      <if test="khxkzhzh != null" >
+        KHXKZHZH,
+      </if>
+      <if test="ckrmc != null" >
+        CKRMC,
+      </if>
+      <if test="gsmc != null" >
+        GSMC,
+      </if>
+      <if test="gsyyzz != null" >
+        GSYYZZ,
+      </if>
+      <if test="gsdjzh != null" >
+        GSDJZH,
+      </if>
+      <if test="dsdjzh != null" >
+        DSDJZH,
+      </if>
+      <if test="frxm != null" >
+        FRXM,
+      </if>
+      <if test="frzjzl != null" >
+        FRZJZL,
+      </if>
+      <if test="frzjhm != null" >
+        FRZJHM,
+      </if>
+      <if test="zczjzl != null" >
+        ZCZJZL,
+      </if>
+      <if test="zczj != null" >
+        ZCZJ,
+      </if>
+      <if test="jyfw != null" >
+        JYFW,
+      </if>
+      <if test="dz != null" >
+        DZ,
+      </if>
+      <if test="yzbm != null" >
+        YZBM,
+      </if>
+      <if test="khyhdm != null" >
+        KHYHDM,
+      </if>
+      <if test="khyhjg != null" >
+        KHYHJG,
+      </if>
+      <if test="zhxz != null" >
+        ZHXZ,
+      </if>
+      <if test="khsj != null" >
+        KHSJ,
+      </if>
+      <if test="zhzt != null" >
+        ZHZT,
+      </if>
+      <if test="zhmc != null" >
+        ZHMC,
+      </if>
+      <if test="tyshxydm != null" >
+        TYSHXYDM,
+      </if>
+      <if test="zjyxq != null" >
+        ZJYXQ,
+      </if>
+      <if test="dqrq != null" >
+        DQRQ,
+      </if>
+      <if test="njbj != null" >
+        NJBJ,
+      </if>
+      <if test="zjzl != null" >
+        ZJZL,
+      </if>
+      <if test="zjhm != null" >
+        ZJHM,
+      </if>
+      <if test="xhzt != null" >
+        XHZT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="zhdh != null" >
+        #{zhdh,jdbcType=VARCHAR},
+      </if>
+      <if test="khdh != null" >
+        #{khdh,jdbcType=VARCHAR},
+      </if>
+      <if test="khmc != null" >
+        #{khmc,jdbcType=VARCHAR},
+      </if>
+      <if test="khxkzhzh != null" >
+        #{khxkzhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="ckrmc != null" >
+        #{ckrmc,jdbcType=VARCHAR},
+      </if>
+      <if test="gsmc != null" >
+        #{gsmc,jdbcType=VARCHAR},
+      </if>
+      <if test="gsyyzz != null" >
+        #{gsyyzz,jdbcType=VARCHAR},
+      </if>
+      <if test="gsdjzh != null" >
+        #{gsdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="dsdjzh != null" >
+        #{dsdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="frxm != null" >
+        #{frxm,jdbcType=VARCHAR},
+      </if>
+      <if test="frzjzl != null" >
+        #{frzjzl,jdbcType=VARCHAR},
+      </if>
+      <if test="frzjhm != null" >
+        #{frzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="zczjzl != null" >
+        #{zczjzl,jdbcType=VARCHAR},
+      </if>
+      <if test="zczj != null" >
+        #{zczj,jdbcType=VARCHAR},
+      </if>
+      <if test="jyfw != null" >
+        #{jyfw,jdbcType=VARCHAR},
+      </if>
+      <if test="dz != null" >
+        #{dz,jdbcType=VARCHAR},
+      </if>
+      <if test="yzbm != null" >
+        #{yzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="khyhdm != null" >
+        #{khyhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="khyhjg != null" >
+        #{khyhjg,jdbcType=VARCHAR},
+      </if>
+      <if test="zhxz != null" >
+        #{zhxz,jdbcType=VARCHAR},
+      </if>
+      <if test="khsj != null" >
+        #{khsj,jdbcType=VARCHAR},
+      </if>
+      <if test="zhzt != null" >
+        #{zhzt,jdbcType=VARCHAR},
+      </if>
+      <if test="zhmc != null" >
+        #{zhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="tyshxydm != null" >
+        #{tyshxydm,jdbcType=VARCHAR},
+      </if>
+      <if test="zjyxq != null" >
+        #{zjyxq,jdbcType=VARCHAR},
+      </if>
+      <if test="dqrq != null" >
+        #{dqrq,jdbcType=VARCHAR},
+      </if>
+      <if test="njbj != null" >
+        #{njbj,jdbcType=VARCHAR},
+      </if>
+      <if test="zjzl != null" >
+        #{zjzl,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhm != null" >
+        #{zjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="xhzt != null" >
+        #{xhzt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.goktech.pojo.HexindatarepositoryExample" resultType="java.lang.Integer" >
+    select count(*) from DZBANK07.HEXINDATAREPOSITORY
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update DZBANK07.HEXINDATAREPOSITORY
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhdh != null" >
+        ZHDH = #{record.zhdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.khdh != null" >
+        KHDH = #{record.khdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.khmc != null" >
+        KHMC = #{record.khmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.khxkzhzh != null" >
+        KHXKZHZH = #{record.khxkzhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ckrmc != null" >
+        CKRMC = #{record.ckrmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gsmc != null" >
+        GSMC = #{record.gsmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gsyyzz != null" >
+        GSYYZZ = #{record.gsyyzz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gsdjzh != null" >
+        GSDJZH = #{record.gsdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dsdjzh != null" >
+        DSDJZH = #{record.dsdjzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.frxm != null" >
+        FRXM = #{record.frxm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.frzjzl != null" >
+        FRZJZL = #{record.frzjzl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.frzjhm != null" >
+        FRZJHM = #{record.frzjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zczjzl != null" >
+        ZCZJZL = #{record.zczjzl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zczj != null" >
+        ZCZJ = #{record.zczj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jyfw != null" >
+        JYFW = #{record.jyfw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dz != null" >
+        DZ = #{record.dz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yzbm != null" >
+        YZBM = #{record.yzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.khyhdm != null" >
+        KHYHDM = #{record.khyhdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.khyhjg != null" >
+        KHYHJG = #{record.khyhjg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhxz != null" >
+        ZHXZ = #{record.zhxz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.khsj != null" >
+        KHSJ = #{record.khsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhzt != null" >
+        ZHZT = #{record.zhzt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zhmc != null" >
+        ZHMC = #{record.zhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tyshxydm != null" >
+        TYSHXYDM = #{record.tyshxydm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zjyxq != null" >
+        ZJYXQ = #{record.zjyxq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dqrq != null" >
+        DQRQ = #{record.dqrq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.njbj != null" >
+        NJBJ = #{record.njbj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zjzl != null" >
+        ZJZL = #{record.zjzl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zjhm != null" >
+        ZJHM = #{record.zjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xhzt != null" >
+        XHZT = #{record.xhzt,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update DZBANK07.HEXINDATAREPOSITORY
+    set ID = #{record.id,jdbcType=VARCHAR},
+      ZHDH = #{record.zhdh,jdbcType=VARCHAR},
+      KHDH = #{record.khdh,jdbcType=VARCHAR},
+      KHMC = #{record.khmc,jdbcType=VARCHAR},
+      KHXKZHZH = #{record.khxkzhzh,jdbcType=VARCHAR},
+      CKRMC = #{record.ckrmc,jdbcType=VARCHAR},
+      GSMC = #{record.gsmc,jdbcType=VARCHAR},
+      GSYYZZ = #{record.gsyyzz,jdbcType=VARCHAR},
+      GSDJZH = #{record.gsdjzh,jdbcType=VARCHAR},
+      DSDJZH = #{record.dsdjzh,jdbcType=VARCHAR},
+      FRXM = #{record.frxm,jdbcType=VARCHAR},
+      FRZJZL = #{record.frzjzl,jdbcType=VARCHAR},
+      FRZJHM = #{record.frzjhm,jdbcType=VARCHAR},
+      ZCZJZL = #{record.zczjzl,jdbcType=VARCHAR},
+      ZCZJ = #{record.zczj,jdbcType=VARCHAR},
+      JYFW = #{record.jyfw,jdbcType=VARCHAR},
+      DZ = #{record.dz,jdbcType=VARCHAR},
+      YZBM = #{record.yzbm,jdbcType=VARCHAR},
+      KHYHDM = #{record.khyhdm,jdbcType=VARCHAR},
+      KHYHJG = #{record.khyhjg,jdbcType=VARCHAR},
+      ZHXZ = #{record.zhxz,jdbcType=VARCHAR},
+      KHSJ = #{record.khsj,jdbcType=VARCHAR},
+      ZHZT = #{record.zhzt,jdbcType=VARCHAR},
+      ZHMC = #{record.zhmc,jdbcType=VARCHAR},
+      TYSHXYDM = #{record.tyshxydm,jdbcType=VARCHAR},
+      ZJYXQ = #{record.zjyxq,jdbcType=VARCHAR},
+      DQRQ = #{record.dqrq,jdbcType=VARCHAR},
+      NJBJ = #{record.njbj,jdbcType=VARCHAR},
+      ZJZL = #{record.zjzl,jdbcType=VARCHAR},
+      ZJHM = #{record.zjhm,jdbcType=VARCHAR},
+      XHZT = #{record.xhzt,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

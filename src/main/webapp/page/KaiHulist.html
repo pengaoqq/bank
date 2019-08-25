@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--  参考 http://www.jeasyui.net/demo/504.html -->
+<title>开户列表</title>
+<!-- 载入easyui样式及图标样式  注意该一下路径-->
+<link rel="stylesheet" type="text/css"
+	href="/web_system/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+	href="/web_system/easyui/themes/icon.css">
+<!-- 载入jquery支持文件（必须写在其他js文件前）、easyui支持文件、easyui中文支持文件 -->
+<script type="text/javascript" src="/web_system/easyui/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/web_system/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="/web_system/easyui/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" href="/web_system/common/css/layui.css">
+<link rel="stylesheet" href="/web_system/css/alertDiv.css">
+<link rel="stylesheet" href="/web_system/css/addcss.css">
+</head>
+<style>
+class tr td /*设置表格文字左右和上下居中对齐*/ {
+	vertical-align: middle;
+	text-align: center;
+}
+</style>
+<body>
+	<div style="padding-top: 10px;">
+		<button id="addbtn" class="layui-btn" style="border-radius: 4px"
+			onclick="one()">
+			<i class="icon-font">&#xe654;</i>添加开户
+		</button>
+	</div>
+	<div style="margin: 20px 0;"></div>
+	<table id="dg" title="开户信息管理" style="width: 95%"
+		data-options="rownumbers:true,singleSelect:true,pagination:true,url:'http://localhost:8888/web_system/kaiHu/easyuiGetData',method:'get',toolbar:'#tb'">
+		<thead>
+			<tr>
+				<!--  field 和你javaean属性一样 -->
+				<th data-options="field:'liush',width:120">流水号</th>
+				<th data-options="field:'cunkrmc',width:120">存款人名称</th>
+			</tr>
+		</thead>
+	</table>
+	<!-- 搜索框 -->
+	<div id="tb">
+		<div style="margin-bottom: 5px">
+			<a href="javascript:void(0)" onclick="add()" class="easyui-linkbutton"  plain="true">删除</a>
+			<a href="#" class="easyui-linkbutton" 
+				plain="true"> 编辑</a>
+		</div>
+		存款人名称：<input type="text" name="cunkrmc" id="cunkrmc" />  <a
+			id="standardQueryBtn" href="javascript:void(0)"
+			class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+	</div>
+	<!-- 弹出层 sta -->
+	<div id="light" class="white_content">
+		<div
+			style="background-color: #f2f2f2; height: 30px; padding-top: 10px; padding-left: 16px">开户界面1</div>
+		<a class="float_div" href="javascript:hide();">X关闭</a>
+		<form style="padding: 16px;">
+			企业名称/统一信用代码:<input type="text" name="companyCode"/><br> <br> 账户性质 :<input
+				type="text" /> 存款人电话:<input type="text" /> <br> <br>
+
+		</form>
+		<button id="nextbtn1" class="layui-btn "
+			style="line-height: 15px; height: 28px; margin-left: 20px">下一步</button>
+	</div>
+	<!-- 弹出层 sta -->
+	<div id="light2" class="white_content">
+		<div
+			style="background-color: #f2f2f2; height: 30px; padding-top: 10px; padding-left: 16px">校验结果</div>
+		<a class="float_div" href="javascript:hide();">X关闭</a>
+		<div>
+			<table style="vertical-align: middle; text-align: center;"
+				align="center" width="500" border=1 bordercolor="#000">
+				<tr>
+					<td>来源</td>
+					<td>结果</td>
+					<td>说明</td>
+				</tr>
+				<tr>
+
+					<td>严重违法失信名单</td>
+					<td>通过</td>
+					<td>未在严重违法失信名单</td>
+				</tr>
+				<tr>
+					<td>银行黑名单</td>
+					<td>通过</td>
+					<td>未在银行黑名单</td>
+				</tr>
+			</table>
+
+		</div>
+		<button id="nextbtn2" class="layui-btn "
+			style="line-height: 15px; height: 28px; margin: 10px 20px">下一步</button>
+	</div>
+	<!-- 弹出层3 -->
+	<div id="light3" class="white_content">
+		<div
+			style="background-color: #f2f2f2; height: 30px; padding-top: 10px; padding-left: 16px">校验结果</div>
+		<a class="float_div" href="javascript:hide();">X关闭</a>
+		
+		<FORM id="saveForm" method="post" action="/web_system/kaiHu/save">
+						<BR>
+						<div class="divmargin">
+							存款人名称 <INPUT id="cunkrmc" class="textInput"
+								style="height: 28px; width: 500PX" maxLength="150" size=30
+								type=text name="cunkrmc"> <BR>
+						</div>
+						<div class="divmargin">
+							存款人电话 <INPUT id="cunkrdh" class="textInput"
+								style="height: 28px; width: 500PX" maxLength="150" size=30
+								type=text name="cunkrdh"> <BR>
+						</div>
+					</FORM>
+			<button id="saveBtn" class="layui-btn "
+			style="line-height: 15px; height: 28px; margin: 10px 20px">保存修改</button>
+	</div>
+	
+	
+			
+	<div id="fade" class="black_overlay"></div>
+	<!-- 弹出层 end -->
+	<script type="text/javascript">
+		$(function() {
+			var pager = $('#dg').datagrid().datagrid('getPager'); // get the pager of datagrid
+			pager.pagination();
+		})
+		$("#standardQueryBtn").click(function() {
+
+			$("#dg").datagrid("load", {
+				"standard.name" : $("#qName").val(),
+				"standard.minWeight" : $("#qMinWeight").val(),
+				"standard.minLength" : $("#qMinLength").val()
+			});
+
+		});
+		function one() {
+			document.getElementById('light').style.display = 'block';
+			document.getElementById('fade').style.display = 'block'
+		}
+
+		function hide() {
+			document.getElementById('light').style.display = 'none';
+			document.getElementById('fade').style.display = 'none'
+			document.getElementById('light2').style.display = 'none';
+		}
+		$("#nextbtn1").click(function() {
+			var companyCode = $("input[name=companyCode]").val();
+			$.post("/web_system/kaiHu/checkData",{"companyCode":companyCode},function(data){
+				if(data.code == 1){
+					document.getElementById('light2').style.display = 'block';
+				}else{
+					document.getElementById('fade').style.display = 'none';
+					alert("数据校验不通过");
+				}
+			})
+			document.getElementById('light').style.display = 'none';
+			document.getElementById('light2').style.display = 'block';
+		});
+		function add() {
+			console.log($('#dg').datagrid('getSelected').id)
+		}
+		
+		$("#nextbtn2").click(function() {
+			document.getElementById('light2').style.display = 'none';
+			document.getElementById('light3').style.display = 'block';
+		})
+		
+		$("#saveBtn").click(function() {
+			$("#saveForm").submit();
+		})
+	</script>
+</body>
+</html>

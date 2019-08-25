@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<!-- 可能 如果你使用的hbuild  -->
+<script type="text/javascript" src="/web_18_ssm/js/1.8.3_jquery.min.js"></script>
+
+<style type="text/css">
+.onediv {
+	padding: 20px 0;
+}
+
+.ocq_answer {
+	padding: 25px 30px;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #ddd;
+}
+</style>
+</head>
+<body>
+	<div class="onediv">
+		<div id="myDiv" style="padding: 25px 30px;"></div>
+
+	</div>
+</body>
+<script type="text/javascript">
+	$(function() {
+
+		//进一步简化
+		$.get("http://localhost:8080/web_18_ssm/getQbyId", "qid=1", function(
+				data) {
+			var qContent = data.qContent;
+
+			var childarray = $.parseJSON(data.child);
+			$("#myDiv").text(qContent);
+			//	alert(qContent);
+			//	alert(childarray.length);
+			var htm = "";
+			var date;
+			for (var i = 0; i < childarray.length; i++) {
+				htm = childarray[i].aw;
+				date = childarray[i].swd;
+				var div = $("<div class='ocq_answer'></div>")
+				
+				$(div).text(htm + getLocalTime(date));
+				$("#myDiv").append(div);
+			}
+
+		})
+		//$("#form1").serialize() 提交id等于form1这个表单
+		function getLocalTime(nS) {
+			return new Date(parseInt(nS)).toLocaleString().replace(/:\d{1,4}$/,
+					' ');
+		}
+		
+
+	})
+	//});
+</script>
+</html>

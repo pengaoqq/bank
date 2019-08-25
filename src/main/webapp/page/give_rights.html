@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- 载入easyui样式及图标样式  注意该一下路径-->
+		<link rel="stylesheet" type="text/css" href="/web_system/easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="/web_system/easyui/themes/icon.css">
+		<!-- 载入jquery支持文件（必须写在其他js文件前）、easyui支持文件、easyui中文支持文件 -->
+		<script type="text/javascript" src="/web_system/easyui/jquery.min.js"></script>
+		<script type="text/javascript" src="/web_system/easyui/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="/web_system/easyui/locale/easyui-lang-zh_CN.js"></script>
+	</head>
+	<style>
+		/*	折叠层*/
+		
+		.black_overlay {
+			display: none;
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			z-index: 1001;
+			-moz-opacity: 0.6;
+			opacity: .60;
+			filter: alpha(opacity=60);
+		}
+		
+		.white_content {
+			display: none;
+			position: absolute;
+			top: 25%;
+			left: 25%;
+			width: 50%;
+			height: 50%;
+			padding: 16px;
+			/*border: 16px solid orange;*/
+			background-color: white;
+			z-index: 1002;
+			overflow: auto;
+		}
+	</style>
+
+	<body>
+
+		<ul id="tt" data-options="checkbox:true"></ul>
+		// the context menu is defined as below:
+		<div id="mm" class="easyui-menu" style="width:120px;">
+			<div onclick="menuHandler(this)" name="add" data-options="iconCls:'icon-add'">add</div>
+			<div onclick="menuHandler(this)" name="delete" data-options="iconCls:'icon-remove'">delete</div>
+		</div>
+		<!-- 弹出层 start -->
+		<div id="light" class="white_content">
+
+			<form action="/web_system/caid/save">
+			<input type="hidden" name="id"  id="pid"value="">
+				请输入 菜单名字 :<input type="text" name="caidmc"/><br> 请输入 菜单访问路径 :<input type="text" /><br>
+			<input type="submit" value="保存菜单">
+			</form>
+			<a href="javascript:void(0)" onclick="two()">Close</a>
+		</div>
+		<div id="fade" class="black_overlay">
+		</div>
+		<!-- 弹出层 end -->
+		<button onclick="getCheck()">获取选中</button>
+	</body>
+	<script>
+		//需要查询资料请查询http://www.jeasyui.net/plugins/185.html
+
+		//如果要显示选择框 需要在html空间上使用 data-options="checkbox:true"
+		$(function() {
+			//使用esyui构造tree数据格式必须是json
+			$('#tt').tree({
+				method: "get",
+				//url: 'http://localhost:8080/admin/Ajax',
+				url: "http://localhost:8888/web_system/caid/getAllCaidAndUserRights?quanxId="+getParam("id"),
+				 lines: true, //显示虚线
+			});
+		})
+		
+		//弹出js自带的输入框
+		function diag(item) { //prompt第一个参数是提示语
+			var str = prompt(item, "");
+			return str;
+		}
+
+		function one() {
+			document.getElementById('light').style.display = 'block';
+			document.getElementById('fade').style.display = 'block'
+		}
+
+		function two() {
+			//先获取数据  通过 ajax提交数据 然后在让当前弹出层消失
+		//	$("form")[0].submit();
+			document.getElementById('light').style.display = 'none';
+			document.getElementById('fade').style.display = 'none'
+
+		}
+
+		function getCheck() {
+			var nodes = $('#tt').tree('getChecked');
+			//获取子节点选中（但是没有全部选中） 的父节点
+			var nodes2 = $('#tt').tree('getChecked', 'indeterminate');
+			console.log(nodes2)
+			//							$.each(nodes, function(){     
+			//			  alert(this.id);  
+			//			})
+			console.log(nodes);
+		}
+		function getParam(paramName) {
+			paramValue = "", isFound = !1;
+			if(this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+				arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;
+				while(i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
+			}
+			return paramValue == "" && (paramValue = null), paramValue
+		}
+	</script>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>添加权限组</title>
+<link href="/web_system/css/addcss.css" rel="stylesheet"
+	type="text/css" />
+<script type="text/javascript"
+	src="/web_system/common/lib/jquery-1.9.0.min.js"></script>
+</head>
+
+<body style="background-color: #eeeeee;">
+	<!-- Header -->
+
+	<!-- END header -->
+	<!--<button style="margin-left: 20px;">发帖</button>-->
+	<div class="main_title" style="margin-top: 20px;">
+
+		<div class="plan_item">
+			<a class="back_all" style="font-size: 16px;; color: #fff;" href="#">添加权限组</a>
+		</div>
+
+		<div>
+
+			<!-- -->
+			<div class="content" style="background-color: #FFFFFE; width: 700px;">
+				<div class="content-main">
+					<FORM id="quanx_edit" method="post" action="">
+						<BR>
+						<div class="divmargin">
+							<INPUT id="id" class="textInput"
+								style="height: 28px; width: 500PX" maxLength="150" size=30
+								type=hidden name="id"> <BR>
+						</div>
+						<div class="divmargin">
+							权限名称 <INPUT id="quanxmc" class="textInput"
+								style="height: 28px; width: 500PX" maxLength="150" size=30
+								type=text name="quanxmc"> <BR>
+						</div>
+						<div class="divmargin">
+							权限备注 <INPUT id="quanxbz" class="textInput"
+								style="height: 28px; width: 500PX" maxLength="150" size=30
+								type=text name="quanxbz"> <BR>
+						</div>
+						<div class="btn_wrap cf">
+							<div class="question_type fl">
+								<INPUT
+									style="border-radius: 4px; width: 60px; height: 30px; background-color: #ec6817; color: #000000;"
+									id="submitBtn" onclick="check();" value="保存" type="button">
+								&emsp;<INPUT
+									style="border-radius: 4px; width: 60px; height: 30px; background-color: #ec6817; color: #000000;"
+									id="submitBtn" onclick="exit();" value="关闭" type="button">
+							</div>
+
+						</div>
+					</FORM>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--清除的float效果 -->
+	<div style="clear: both;"></div>
+	<!-- Footer -->
+
+	<!-- END Footer -->
+</body>
+<script>
+function check() {
+	//发送ajax请求获取用户数据 
+	//ajax发送  会不会携带cookie？
+	$.post("/web_system/quanx/updQuanx", $('#quanx_edit').serialize(),
+		function(data) {
+			if (data.code == 1) {
+				alert(data.data);
+				location.href = "/web_system/page/quanx_list.html";
+			} else {
+				alert(data.message);
+				history.go(-1);
+			}
+		});
+}
+$(function() {
+	var id = window.location.search.substring(1);
+	$.post("/web_system/quanx/queryQuanxById", id, function(data) {
+		if (data.code == 1) {
+			var quanx = data.data;
+			$("#id").val(quanx.id);
+			$("#quanxmc").val(quanx.quanxmc);
+			$("#quanxbz").val(quanx.quanxbz);
+		}
+	});
+});
+function exit() {
+	location.href = "/web_system/page/quanx_list.html";
+}
+</script>
+
+</html>

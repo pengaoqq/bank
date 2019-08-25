@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>权限</title>
+<link rel="stylesheet" type="text/css"
+	href="/web_system/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+	href="/web_system/easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css"
+	href="/web_system/easyui/demo/demo.css">
+<script type="text/javascript"
+	src="/web_system/common/lib/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"
+	src="/web_system/easyui/jquery.easyui.min.js"></script>
+</head>
+
+<body>
+	<h2>用户管理</h2>
+	<div style="margin: 20px 0;"></div>
+	<table id="dg" title="Custom DataGrid Pager" style="width: 700px;"
+		data-options="singleSelect:true,pagination:true,url:'/web_system/quanx/easyuiGetData',method:'get',toolbar:'#tb'">
+		<thead>
+			<tr>
+				<th data-options="field:'id'">权限id</th>
+
+				<th data-options="field:'quanxmc',width:100">权限名称</th>
+				<th data-options="field:'_operate',width:80,align:'center',formatter:formatOper">操作</th>
+			</tr>
+		</thead>
+	</table>
+	<div id="tb">
+		用户账户 <input type="text" name="standard.name" id="zh" />
+		用户状态 <input type="text" name="standard.minWeight" id="zt" />
+		<a id="standardQueryBtn" href="javascript:void(0)"
+			class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+	</div>
+	<script type="text/javascript">
+		 //index表示那一行的数据
+		function formatOper(row,index){
+					console.log(index)
+	
+			return '<a href="give_rights.html?id='+index.id+'">修改</a>';
+		}
+
+		$(function() {
+			var pager = $('#dg').datagrid().datagrid('getPager'); // get the pager of datagrid
+			pager.pagination({
+				buttons : [
+						{
+							iconCls : 'icon-search',
+							handler : function() {
+								alert('search');
+							}
+						},
+						{
+							iconCls : 'icon-add',
+							handler : function() {
+								location.href="/web_system/page/quanx_add.html";
+							}
+						},
+						{
+							iconCls : 'icon-edit',
+							handler : function() {
+								var row = $('#dg').datagrid('getSelected');
+							/* 	if (row) {
+									$.messager.alert('Info', row.itemid + ":"
+											+ row.productid + ":" + row.attr1);
+								} */
+								window.location.href = "/web_system/page/quanx_edit.html?id="+row.id;
+							}
+						},
+						{
+							iconCls : 'icon-remove',
+							handler : function() {
+								var row = $('#dg').datagrid('getSelected');
+								var msg = "您确定要删除该账户吗？";
+								if (confirm(msg) == true) {
+									$.post("/web_system/quanx/delQuanx", {"id":row.id},
+											function(data) {
+										if (data.code = 1) {
+											/* alert(data.data); */
+											window.location.href = "/web_system/page/quanx_list.html";
+										} else {
+											alert(data.message);
+										}
+									});
+								}
+							}
+						} ]
+			});
+		})
+
+		function getSelected() {
+			var row = $('#dg').datagrid('getSelected');
+			if (row) {
+				$.messager.alert('Info', row.itemid + ":" + row.productid + ":"
+						+ row.attr1);
+			}
+		}
+		$("#standardQueryBtn").click(function() {
+           //$("#dg") 获取easui的数据表格   datagrid("load" 重新加载表格 后面的几个数据是请求的参数
+			$("#dg").datagrid("load", {
+				"zh" : $("#zh").val(),
+				"zt" : $("#zt").val()
+			});
+
+		});
+	</script>
+</body>
+
+</html>

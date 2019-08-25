@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>发布帖子</title>
+<script type="text/javascript"
+	src="/web_system/common/lib/jquery-1.9.0.min.js"></script>
+</head>
+<style>
+.article_push_time {
+	font-size: 14px;
+	/*padding-left: 5px;*/
+}
+
+.main_title {
+	font-size: 14px;
+	padding: 15px 20px;
+	background-color: #EEEEEE;
+	border-radius: 6px 6px 0 0;
+	position: relative;
+	margin-left: 20px;
+	margin-right: 34px;
+	margin-bottom: 20px;
+}
+
+.plan_item {
+	font-size: 14px;
+	padding: 15px 20px;
+	background-color: gray;
+	border-radius: 6px 6px 0 0;
+	position: relative;
+	width: 661px;
+	float: left;
+	border: 1px;
+	margin-right: 34px;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+}
+
+.sc_plan_title {
+	font-size: 24px;
+	color: #555;
+	font-weight: 700;
+	line-height: 76px;
+	margin-top: 5px;
+	padding: 5px 24px;
+	background-color: #f5f4f3;
+	margin-bottom: 32px;
+}
+
+.main_title_bread {
+	margin: 0 10px;
+	font-size: 18px;
+}
+
+.sc_stage_current_item {
+	background: #e36b3a;
+}
+
+.border-radius-6 {
+	border-radius: 6px;
+}
+
+.menu_wrap li {
+	display: block;
+	text-align: right;
+	color: #555;
+	padding: 12px 10px 12px 0;
+}
+
+.pro_day {
+	display: block;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.pro_message {
+	display: block;
+	font-size: 14px;
+}
+
+.current_li {
+	border: 2px solid #f8996d;
+	border-radius: 6px;
+	color: #f8996d;
+}
+
+.btn_wrap {
+	margin-top: 20px;
+	padding-bottom: 30px;
+}
+
+.content-main {
+	margin-top: 20px;
+	padding: 20px 20px;
+}
+
+.divmargin {
+	margin: 20px 0px 10px 0px;
+}
+</style>
+
+<body style="background-color: #eeeeee;">
+	<!-- Header -->
+
+	<!-- END header -->
+	<!--<button style="margin-left: 20px;">发帖</button>-->
+	<div class="main_title" style="margin-top: 20px;">
+
+		<div class="plan_item">
+			<a class="back_all" style="font-size: 16px;; color: #fff;" href="#">个人信息</a>
+		</div>
+
+		<div>
+
+			<!-- -->
+			<div class="content" style="background-color: #FFFFFE; width: 700px;">
+				<div class="content-main">
+					<FORM id="login" method="post" action="/web_system/yongh/updateUser">
+						<BR>
+						<div class="divmargin">
+							姓&emsp;名 <INPUT id="xingming" class="textInput"
+								style="height: 28px; width: 500PX" maxLength="150" size=30
+								type=text name="yonghxm"> <BR>
+						</div>
+						<div class="divmargin">
+							登录名 <INPUT id="name" class="textInput"
+								style="height: 28px; width: 500PX" maxLength="150" size=30
+								type=text name="yonghzh"> <BR>
+						</div>
+						<div class="btn_wrap cf" style="display: none">
+							<div class="question_type fl">
+								帖子分类（发布之后不可修改）： <select style="margin-top: 10px;"
+									name="awsTopicUuids" id="note_type">
+									<option>111</option>
+									<option>111</option>
+									<option>111</option>
+									<option>111</option>
+								</select> <INPUT
+									style="border-radius: 4px; width: 60px; height: 30px; background-color: #ec6817; color: #000000;"
+									id="submitBtn" onclick="checkData();" value="发布" type="button">
+							</div>
+
+						</div>
+						<input type="submit" value="保存修改">
+					</FORM>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--清除的float效果 -->
+	<div style="clear: both;"></div>
+	<!-- Footer -->
+
+	<!-- END Footer -->
+</body>
+<script>
+	$(function() {
+		//发送ajax请求获取用户数据 
+		//ajax发送  会不会携带cookie？
+		$.get("/web_system/yongh/getinfo", function(data) {
+			if (data.code == 1) {
+				//填充数据
+				var yongh = data.data;
+				$("#name").val(yongh.yonghzh);
+				$("#xingming").val(yongh.yonghxm);
+			}
+		});
+	});
+</script>
+
+</html>

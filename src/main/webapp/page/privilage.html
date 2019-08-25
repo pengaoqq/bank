@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>权限</title>
+		<link rel="stylesheet" type="text/css" href="/X-admin/easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="/X-admin/easyui/themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="/X-admin/easyui/demo/demo.css">
+		<script type="text/javascript" src="/X-admin/common/lib/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="/X-admin/easyui/jquery.easyui.min.js"></script>
+	</head>
+
+	<body>
+		<h2>Custom DataGrid Pager</h2>
+		<p>You can append some buttons to the standard datagrid pager bar.</p>
+		<div style="margin:20px 0;"></div>
+		<table id="dg" title="Custom DataGrid Pager" style="width:700px;" data-options="rownumbers:true,singleSelect:true,pagination:true,url:'/X-admin/page/datagrid_data1.json',method:'get',toolbar:'#tb'">
+			<thead>
+				<tr>
+					<th data-options="field:'itemid',checkbox:true"></th>
+
+					<th data-options="field:'productid',width:100">Product</th>
+					<th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+					<th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+					<th data-options="field:'attr1',width:240">Attribute</th>
+					<th data-options="field:'status',width:60,align:'center'">Status</th>
+
+				</tr>
+			</thead>
+		</table>
+		<div id="tb">
+			名称<input type="text" name="standard.name" id="qName" />  最小重量
+			<input type="text" name="standard.minWeight" id="qMinWeight" />  最小长度
+			<input type="text" name="standard.minLength" id="qMinLength" />
+			<a id="standardQueryBtn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				var pager = $('#dg').datagrid().datagrid('getPager'); // get the pager of datagrid
+				pager.pagination({
+					buttons: [{
+						iconCls: 'icon-search',
+						handler: function() {
+							alert('search');
+						}
+					}, {
+						iconCls: 'icon-add',
+						handler: function(event, data) {
+							console.log(event + " " + data)
+						}
+					}, {
+						iconCls: 'icon-edit',
+						handler: function() {
+							var row = $('#dg').datagrid('getSelected');
+							if(row) {
+								$.messager.alert('Info', row.itemid + ":" + row.productid + ":" + row.attr1);
+							}
+						}
+					}]
+				});
+			})
+
+			function getSelected() {
+				var row = $('#dg').datagrid('getSelected');
+				if(row) {
+					$.messager.alert('Info', row.itemid + ":" + row.productid + ":" + row.attr1);
+				}
+			}
+			$("#standardQueryBtn").click(function() {
+
+				$("#dg").datagrid("load", {
+					"standard.name": $("#qName").val(),
+					"standard.minWeight": $("#qMinWeight").val(),
+					"standard.minLength": $("#qMinLength").val()
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

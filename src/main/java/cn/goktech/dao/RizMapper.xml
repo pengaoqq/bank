@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.goktech.dao.RizMapper" >
+  <resultMap id="BaseResultMap" type="cn.goktech.pojo.Riz" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="NEIR" property="neir" jdbcType="VARCHAR" />
+    <result column="LEIX" property="leix" jdbcType="OTHER" />
+    <result column="RIQSJ" property="riqsj" jdbcType="DATE" />
+    <result column="MOK" property="mok" jdbcType="VARCHAR" />
+    <result column="YONGHIP" property="yonghip" jdbcType="VARCHAR" />
+    <result column="BIAOM" property="biaom" jdbcType="VARCHAR" />
+    <result column="SQLYJ" property="sqlyj" jdbcType="VARCHAR" />
+    <result column="JIEG" property="jieg" jdbcType="VARCHAR" />
+    <result column="YONGHID" property="yonghid" jdbcType="OTHER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, NEIR, LEIX, RIQSJ, MOK, YONGHIP, BIAOM, SQLYJ, JIEG, YONGHID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.goktech.pojo.RizExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from DZBANK07.RIZ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from DZBANK07.RIZ
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from DZBANK07.RIZ
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.goktech.pojo.RizExample" >
+    delete from DZBANK07.RIZ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.goktech.pojo.Riz" >
+    insert into DZBANK07.RIZ (ID, NEIR, LEIX, 
+      RIQSJ, MOK, YONGHIP, BIAOM, 
+      SQLYJ, JIEG, YONGHID)
+    values (#{id,jdbcType=DECIMAL}, #{neir,jdbcType=VARCHAR}, #{leix,jdbcType=OTHER}, 
+      #{riqsj,jdbcType=DATE}, #{mok,jdbcType=VARCHAR}, #{yonghip,jdbcType=VARCHAR}, #{biaom,jdbcType=VARCHAR}, 
+      #{sqlyj,jdbcType=VARCHAR}, #{jieg,jdbcType=VARCHAR}, #{yonghid,jdbcType=OTHER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.goktech.pojo.Riz" >
+    insert into DZBANK07.RIZ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="neir != null" >
+        NEIR,
+      </if>
+      <if test="leix != null" >
+        LEIX,
+      </if>
+      <if test="riqsj != null" >
+        RIQSJ,
+      </if>
+      <if test="mok != null" >
+        MOK,
+      </if>
+      <if test="yonghip != null" >
+        YONGHIP,
+      </if>
+      <if test="biaom != null" >
+        BIAOM,
+      </if>
+      <if test="sqlyj != null" >
+        SQLYJ,
+      </if>
+      <if test="jieg != null" >
+        JIEG,
+      </if>
+      <if test="yonghid != null" >
+        YONGHID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="neir != null" >
+        #{neir,jdbcType=VARCHAR},
+      </if>
+      <if test="leix != null" >
+        #{leix,jdbcType=OTHER},
+      </if>
+      <if test="riqsj != null" >
+        #{riqsj,jdbcType=DATE},
+      </if>
+      <if test="mok != null" >
+        #{mok,jdbcType=VARCHAR},
+      </if>
+      <if test="yonghip != null" >
+        #{yonghip,jdbcType=VARCHAR},
+      </if>
+      <if test="biaom != null" >
+        #{biaom,jdbcType=VARCHAR},
+      </if>
+      <if test="sqlyj != null" >
+        #{sqlyj,jdbcType=VARCHAR},
+      </if>
+      <if test="jieg != null" >
+        #{jieg,jdbcType=VARCHAR},
+      </if>
+      <if test="yonghid != null" >
+        #{yonghid,jdbcType=OTHER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.goktech.pojo.RizExample" resultType="java.lang.Integer" >
+    select count(*) from DZBANK07.RIZ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update DZBANK07.RIZ
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.neir != null" >
+        NEIR = #{record.neir,jdbcType=VARCHAR},
+      </if>
+      <if test="record.leix != null" >
+        LEIX = #{record.leix,jdbcType=OTHER},
+      </if>
+      <if test="record.riqsj != null" >
+        RIQSJ = #{record.riqsj,jdbcType=DATE},
+      </if>
+      <if test="record.mok != null" >
+        MOK = #{record.mok,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yonghip != null" >
+        YONGHIP = #{record.yonghip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.biaom != null" >
+        BIAOM = #{record.biaom,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sqlyj != null" >
+        SQLYJ = #{record.sqlyj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jieg != null" >
+        JIEG = #{record.jieg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yonghid != null" >
+        YONGHID = #{record.yonghid,jdbcType=OTHER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update DZBANK07.RIZ
+    set ID = #{record.id,jdbcType=DECIMAL},
+      NEIR = #{record.neir,jdbcType=VARCHAR},
+      LEIX = #{record.leix,jdbcType=OTHER},
+      RIQSJ = #{record.riqsj,jdbcType=DATE},
+      MOK = #{record.mok,jdbcType=VARCHAR},
+      YONGHIP = #{record.yonghip,jdbcType=VARCHAR},
+      BIAOM = #{record.biaom,jdbcType=VARCHAR},
+      SQLYJ = #{record.sqlyj,jdbcType=VARCHAR},
+      JIEG = #{record.jieg,jdbcType=VARCHAR},
+      YONGHID = #{record.yonghid,jdbcType=OTHER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.goktech.pojo.Riz" >
+    update DZBANK07.RIZ
+    <set >
+      <if test="neir != null" >
+        NEIR = #{neir,jdbcType=VARCHAR},
+      </if>
+      <if test="leix != null" >
+        LEIX = #{leix,jdbcType=OTHER},
+      </if>
+      <if test="riqsj != null" >
+        RIQSJ = #{riqsj,jdbcType=DATE},
+      </if>
+      <if test="mok != null" >
+        MOK = #{mok,jdbcType=VARCHAR},
+      </if>
+      <if test="yonghip != null" >
+        YONGHIP = #{yonghip,jdbcType=VARCHAR},
+      </if>
+      <if test="biaom != null" >
+        BIAOM = #{biaom,jdbcType=VARCHAR},
+      </if>
+      <if test="sqlyj != null" >
+        SQLYJ = #{sqlyj,jdbcType=VARCHAR},
+      </if>
+      <if test="jieg != null" >
+        JIEG = #{jieg,jdbcType=VARCHAR},
+      </if>
+      <if test="yonghid != null" >
+        YONGHID = #{yonghid,jdbcType=OTHER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.goktech.pojo.Riz" >
+    update DZBANK07.RIZ
+    set NEIR = #{neir,jdbcType=VARCHAR},
+      LEIX = #{leix,jdbcType=OTHER},
+      RIQSJ = #{riqsj,jdbcType=DATE},
+      MOK = #{mok,jdbcType=VARCHAR},
+      YONGHIP = #{yonghip,jdbcType=VARCHAR},
+      BIAOM = #{biaom,jdbcType=VARCHAR},
+      SQLYJ = #{sqlyj,jdbcType=VARCHAR},
+      JIEG = #{jieg,jdbcType=VARCHAR},
+      YONGHID = #{yonghid,jdbcType=OTHER}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,15 @@
+127.0.0.1 - - [14/Aug/2019:12:55:39 +0800] "GET /web_system/page/index.html HTTP/1.1" 304 - http-bio-80-exec-1 161
+127.0.0.1 - - [14/Aug/2019:12:55:39 +0800] "GET /web_system/common/skin/qingxin/skin.css HTTP/1.1" 304 - http-bio-80-exec-2 29
+127.0.0.1 - - [14/Aug/2019:12:55:39 +0800] "GET /web_system/common/css/sccl.css HTTP/1.1" 304 - http-bio-80-exec-3 32
+127.0.0.1 - - [14/Aug/2019:12:55:39 +0800] "GET /web_system/common/js/sccl.js HTTP/1.1" 304 - http-bio-80-exec-4 47
+127.0.0.1 - - [14/Aug/2019:12:55:39 +0800] "GET /web_system/common/js/sccl-util.js HTTP/1.1" 304 - http-bio-80-exec-6 49
+127.0.0.1 - - [14/Aug/2019:12:55:39 +0800] "GET /web_system/page/home.html HTTP/1.1" 304 - http-bio-80-exec-7 23
+127.0.0.1 - - [14/Aug/2019:12:55:39 +0800] "GET /web_system/common/lib/jquery-1.9.0.min.js HTTP/1.1" 304 - http-bio-80-exec-5 124
+127.0.0.1 - - [14/Aug/2019:12:55:39 +0800] "GET /web_system/common/lib/jquery-1.9.0.min.js HTTP/1.1" 304 - http-bio-80-exec-8 6
+127.0.0.1 - - [14/Aug/2019:12:55:39 +0800] "GET /web_system/yongh/getinfo HTTP/1.1" 200 48 http-bio-80-exec-10 127
+127.0.0.1 - - [14/Aug/2019:12:55:40 +0800] "POST /web_system/caid/getQuanxzAll HTTP/1.1" 200 707 http-bio-80-exec-9 483
+127.0.0.1 - - [14/Aug/2019:12:55:40 +0800] "GET /web_system/page/null HTTP/1.1" 404 949 http-bio-80-exec-9 5
+127.0.0.1 - - [14/Aug/2019:12:55:41 +0800] "GET /web_system/page/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86 HTTP/1.1" 404 949 http-bio-80-exec-9 3
+127.0.0.1 - - [14/Aug/2019:12:55:42 +0800] "GET /web_system/quanx/easyuiGetData?page=1&rows=10 HTTP/1.1" 200 507 http-bio-80-exec-9 113
+127.0.0.1 - - [14/Aug/2019:12:55:47 +0800] "GET /web_system/caid/getAll HTTP/1.1" 200 425 http-bio-80-exec-9 156
+127.0.0.1 - - [14/Aug/2019:12:55:48 +0800] "GET /web_system/yongh/easyuiGetData?page=1&rows=10 HTTP/1.1" 200 2700 http-bio-80-exec-9 67

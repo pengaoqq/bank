@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>权限</title>
+<link rel="stylesheet" type="text/css"
+	href="/web_system/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css"
+	href="/web_system/easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css"
+	href="/web_system/easyui/demo/demo.css">
+<script type="text/javascript"
+	src="/web_system/common/lib/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"
+	src="/web_system/easyui/jquery.easyui.min.js"></script>
+</head>
+
+<body>
+	<h2>用户管理</h2>
+	<div style="margin: 20px 0;"></div>
+	<table id="dg" title="Custom DataGrid Pager" style="width: 700px;"
+		data-options="singleSelect:true,pagination:true,url:'/web_system/yongh/easyuiGetData',method:'get',toolbar:'#tb'">
+		<thead>
+			<tr>
+				<th data-options="field:'id'">用户id</th>
+
+				<th data-options="field:'yonghzh',width:100">用户账户</th>
+				<th data-options="field:'yonghxm',width:80,align:'right'">
+					用户姓名</th>
+				<th data-options="field:'zhanghzt',width:80,align:'right'">状态码</th>
+			
+			</tr>
+		</thead>
+	</table>
+	<div id="tb">
+		用户账户 <input type="text" name="standard.name" id="zh" />
+		用户状态 <input type="text" name="standard.minWeight" id="zt" />
+		<a id="standardQueryBtn" href="javascript:void(0)"
+			class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			var pager = $('#dg').datagrid().datagrid('getPager'); // get the pager of datagrid
+			pager.pagination({
+				buttons : [
+						{
+							iconCls : 'icon-search',
+							handler : function() {
+								alert('search');
+							}
+						},
+						{
+							iconCls : 'icon-add',
+							handler : function(event, data) {
+								window.location.href = "/web_system/page/yonghu_add.html";
+							}
+						},
+						{
+							iconCls : 'icon-edit',
+							handler : function() {
+								var row = $('#dg').datagrid('getSelected');
+								window.location.href = "/web_system/page/yonghu_edit.html?id="+row.id;
+							}
+						},
+						{
+							iconCls : 'icon-remove',
+							handler : function() {
+								var row = $('#dg').datagrid('getSelected');
+								var msg = "您确定要删除该用户吗？";
+								if (confirm(msg) == true) {
+									$.post("/web_system/yongh/delYongh", {"id":row.id},
+										function(data) {
+										if (data.code = 1) {
+											window.location.href = "/web_system/page/yonghu_list.html";
+										} else {
+											alert(data.message);
+										}
+									});
+								}
+							}
+						} ]
+			});
+		})
+
+		function getSelected() {
+			var row = $('#dg').datagrid('getSelected');
+			if (row) {
+				$.messager.alert('Info', row.itemid + ":" + row.productid + ":"
+						+ row.attr1);
+			}
+		}
+		$("#standardQueryBtn").click(function() {
+           //$("#dg") 获取easui的数据表格   datagrid("load" 重新加载表格 后面的几个数据是请求的参数
+			$("#dg").datagrid("load", {
+				"zh" : $("#zh").val(),
+				"zt" : $("#zt").val()
+			});
+
+		});
+	</script>
+</body>
+
+</html>
